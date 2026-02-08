@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -30,6 +30,11 @@ export const getProjectTags = async () => {
   return response.data;
 };
 
+export const claimProject = async (id, email) => {
+  const response = await api.post(`/projects/${id}/claim/`, { email });
+  return response.data;
+};
+
 // Services API
 export const getServices = async (params = {}) => {
   const response = await api.get('/services/', { params });
@@ -48,6 +53,11 @@ export const getServiceCategories = async () => {
 
 export const getServiceTags = async () => {
   const response = await api.get('/services/tags/');
+  return response.data;
+};
+
+export const claimService = async (id, email) => {
+  const response = await api.post(`/services/${id}/claim/`, { email });
   return response.data;
 };
 
@@ -72,9 +82,25 @@ export const getFundingTypes = async () => {
   return response.data;
 };
 
+export const claimCapital = async (id, email) => {
+  const response = await api.post(`/capital/${id}/claim/`, { email });
+  return response.data;
+};
+
 // Submissions API
 export const submitEntry = async (data) => {
   const response = await api.post('/submissions/', data);
+  return response.data;
+};
+
+// Sponsors API
+export const getSponsors = async (params = {}) => {
+  const response = await api.get('/sponsors/', { params });
+  return response.data;
+};
+
+export const applyAsSponsor = async (data) => {
+  const response = await api.post('/sponsors/apply/', data);
   return response.data;
 };
 

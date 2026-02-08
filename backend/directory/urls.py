@@ -5,6 +5,7 @@ from .views import (
     ServiceProviderViewSet,
     CapitalSourceViewSet,
     DirectorySubmissionViewSet,
+    SponsorViewSet,
     murmurations_project_profile,
     murmurations_service_profile,
     murmurations_capital_profile
@@ -15,6 +16,7 @@ router.register(r'projects', LandBasedProjectViewSet, basename='project')
 router.register(r'services', ServiceProviderViewSet, basename='service')
 router.register(r'capital', CapitalSourceViewSet, basename='capital')
 router.register(r'submissions', DirectorySubmissionViewSet, basename='submission')
+router.register(r'sponsors', SponsorViewSet, basename='sponsor')
 
 urlpatterns = [
     path('', include(router.urls)),

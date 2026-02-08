@@ -7,11 +7,16 @@ class BaseDirectoryEntry(models.Model):
     url = models.URLField()
     description = models.TextField()
     location = models.CharField(max_length=255)
+    address = models.TextField(blank=True, help_text="Full mailing address")
+    contact_email = models.EmailField(blank=True, null=True)
+    photos = models.JSONField(default=list, blank=True, help_text="List of photo URLs")
     tags = models.JSONField(default=list, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_verified = models.BooleanField(default=False)
     featured = models.BooleanField(default=False)
+    claimed_by = models.EmailField(blank=True, null=True, help_text="Email of person who claimed this enterprise")
+    claimed_at = models.DateTimeField(blank=True, null=True)
     
     class Meta:
         abstract = True
@@ -19,6 +24,14 @@ class BaseDirectoryEntry(models.Model):
     
     def __str__(self):
         return self.name
+    
+    def get_domain_from_url(self):
+        """Extract domain from URL for claiming verification"""
+        from urllib.parse import urlparse
+        try:
+            return urlparse(self.url).netloc.replace('www.', '')
+        except:
+            return None
 
 
 class LandBasedProject(BaseDirectoryEntry):
@@ -34,7 +47,6 @@ class LandBasedProject(BaseDirectoryEntry):
     ]
     
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
-    contact_email = models.EmailField(blank=True, null=True)
     contact_phone = models.CharField(max_length=50, blank=True, null=True)
     size_acres = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     
@@ -57,7 +69,6 @@ class ServiceProvider(BaseDirectoryEntry):
     
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     services = models.JSONField(default=list, blank=True)
-    contact_email = models.EmailField(blank=True, null=True)
     contact_phone = models.CharField(max_length=50, blank=True, null=True)
     service_area = models.CharField(max_length=255, blank=True, help_text="Geographic service area")
     
@@ -90,11 +101,45 @@ class CapitalSource(BaseDirectoryEntry):
     focus_areas = models.JSONField(default=list, blank=True)
     typical_investment_range = models.CharField(max_length=100, blank=True)
     application_url = models.URLField(blank=True)
-    contact_email = models.EmailField(blank=True, null=True)
     
     class Meta:
         verbose_name = "Capital Source"
         verbose_name_plural = "Capital Sources"
+
+
+class Sponsor(models.Model):
+    """Sponsors of the Earth Care Network"""
+    TIER_CHOICES = [
+        ('founding', 'Founding Sponsor'),
+        ('platinum', 'Platinum Sponsor'),
+        ('gold', 'Gold Sponsor'),
+        ('silver', 'Silver Sponsor'),
+        ('community', 'Community Supporter'),
+    ]
+    
+    STATUS_CHOICES = [
+        ('active', 'Active'),
+        ('pending', 'Pending Approval'),
+        ('inactive', 'Inactive'),
+    ]
+    
+    name = models.CharField(max_length=255)
+    tier = models.CharField(max_length=50, choices=TIER_CHOICES)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
+    logo_url = models.URLField()
+    website_url = models.URLField()
+    description = models.TextField()
+    contact_name = models.CharField(max_length=255)
+    contact_email = models.EmailField()
+    contribution_amount = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    joined_at = models.DateTimeField(auto_now_add=True)
+    featured = models.BooleanField(default=False)
+    
+    class Meta:
+        ordering = ['-featured', 'tier', 'joined_at']
+    
+    def __str__(self):
+        return f"{self.name} ({self.get_tier_display()})"
 
 
 class DirectorySubmission(models.Model):

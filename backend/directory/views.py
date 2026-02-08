@@ -1,15 +1,18 @@
-from rest_framework import viewsets, filters
+from rest_framework import viewsets, filters, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
+from django.utils import timezone
 from django_filters.rest_framework import DjangoFilterBackend
-from .models import LandBasedProject, ServiceProvider, CapitalSource, DirectorySubmission
+from .models import LandBasedProject, ServiceProvider, CapitalSource, DirectorySubmission, Sponsor
 from .serializers import (
     LandBasedProjectSerializer,
     ServiceProviderSerializer,
     CapitalSourceSerializer,
-    DirectorySubmissionSerializer
+    DirectorySubmissionSerializer,
+    SponsorSerializer,
+    ClaimEnterpriseSerializer
 )
 from .murmurations import (
     generate_project_profile,
@@ -26,8 +29,8 @@ class LandBasedProjectViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = LandBasedProject.objects.filter(is_verified=True)
     serializer_class = LandBasedProjectSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    filterset_fields = ['category', 'featured']  # Removed tags - JSONField not supported
-    search_fields = ['name', 'description', 'location']
+    filterset_fields = ['category', 'featured']
+    search_fields = ['name', 'description', 'location', 'address']
     ordering_fields = ['created_at', 'name', 'featured']
     ordering = ['-featured', '-created_at']
     
@@ -44,6 +47,42 @@ class LandBasedProjectViewSet(viewsets.ReadOnlyModelViewSet):
         for project in LandBasedProject.objects.all():
             tags.update(project.tags)
         return Response(sorted(list(tags)))
+    
+    @action(detail=True, methods=['post'])
+    def claim(self, request, pk=None):
+        """Claim an enterprise"""
+        project = self.get_object()
+        serializer = ClaimEnterpriseSerializer(data=request.data)
+        
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        email = serializer.validated_data['email']
+        email_domain = email.split('@')[1] if '@' in email else ''
+        enterprise_domain = project.get_domain_from_url()
+        
+        if project.claimed_by:
+            return Response({
+                'error': 'This enterprise has already been claimed',
+                'claimed_by': project.claimed_by
+            }, status=status.HTTP_400_BAD_REQUEST)
+        
+        if not enterprise_domain or email_domain != enterprise_domain:
+            return Response({
+                'error': f'Email domain must match enterprise domain: {enterprise_domain}'
+            }, status=status.HTTP_400_BAD_REQUEST)
+        
+        # In a real app, send verification email here
+        project.claimed_by = email
+        project.claimed_at = timezone.now()
+        project.save()
+        
+        return Response({
+            'success': True,
+            'message': 'Enterprise claimed successfully',
+            'claimed_by': email,
+            'claimed_at': project.claimed_at
+        })
 
 
 class ServiceProviderViewSet(viewsets.ReadOnlyModelViewSet):
@@ -54,8 +93,8 @@ class ServiceProviderViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = ServiceProvider.objects.filter(is_verified=True)
     serializer_class = ServiceProviderSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    filterset_fields = ['category', 'featured']  # Removed tags - JSONField not supported
-    search_fields = ['name', 'description', 'location']
+    filterset_fields = ['category', 'featured']
+    search_fields = ['name', 'description', 'location', 'address']
     ordering_fields = ['created_at', 'name', 'featured']
     ordering = ['-featured', '-created_at']
     
@@ -80,6 +119,41 @@ class ServiceProviderViewSet(viewsets.ReadOnlyModelViewSet):
         for provider in ServiceProvider.objects.all():
             tags.update(provider.tags)
         return Response(sorted(list(tags)))
+    
+    @action(detail=True, methods=['post'])
+    def claim(self, request, pk=None):
+        """Claim an enterprise"""
+        provider = self.get_object()
+        serializer = ClaimEnterpriseSerializer(data=request.data)
+        
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        email = serializer.validated_data['email']
+        email_domain = email.split('@')[1] if '@' in email else ''
+        enterprise_domain = provider.get_domain_from_url()
+        
+        if provider.claimed_by:
+            return Response({
+                'error': 'This enterprise has already been claimed',
+                'claimed_by': provider.claimed_by
+            }, status=status.HTTP_400_BAD_REQUEST)
+        
+        if not enterprise_domain or email_domain != enterprise_domain:
+            return Response({
+                'error': f'Email domain must match enterprise domain: {enterprise_domain}'
+            }, status=status.HTTP_400_BAD_REQUEST)
+        
+        provider.claimed_by = email
+        provider.claimed_at = timezone.now()
+        provider.save()
+        
+        return Response({
+            'success': True,
+            'message': 'Enterprise claimed successfully',
+            'claimed_by': email,
+            'claimed_at': provider.claimed_at
+        })
 
 
 class CapitalSourceViewSet(viewsets.ReadOnlyModelViewSet):
@@ -90,8 +164,8 @@ class CapitalSourceViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = CapitalSource.objects.filter(is_verified=True)
     serializer_class = CapitalSourceSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    filterset_fields = ['category', 'funding_type', 'featured']  # Removed tags - JSONField not supported
-    search_fields = ['name', 'description', 'location']
+    filterset_fields = ['category', 'funding_type', 'featured']
+    search_fields = ['name', 'description', 'location', 'address']
     ordering_fields = ['created_at', 'name', 'featured']
     ordering = ['-featured', '-created_at']
     
@@ -122,6 +196,41 @@ class CapitalSourceViewSet(viewsets.ReadOnlyModelViewSet):
         for source in CapitalSource.objects.all():
             tags.update(source.tags)
         return Response(sorted(list(tags)))
+    
+    @action(detail=True, methods=['post'])
+    def claim(self, request, pk=None):
+        """Claim an enterprise"""
+        capital = self.get_object()
+        serializer = ClaimEnterpriseSerializer(data=request.data)
+        
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        email = serializer.validated_data['email']
+        email_domain = email.split('@')[1] if '@' in email else ''
+        enterprise_domain = capital.get_domain_from_url()
+        
+        if capital.claimed_by:
+            return Response({
+                'error': 'This enterprise has already been claimed',
+                'claimed_by': capital.claimed_by
+            }, status=status.HTTP_400_BAD_REQUEST)
+        
+        if not enterprise_domain or email_domain != enterprise_domain:
+            return Response({
+                'error': f'Email domain must match enterprise domain: {enterprise_domain}'
+            }, status=status.HTTP_400_BAD_REQUEST)
+        
+        capital.claimed_by = email
+        capital.claimed_at = timezone.now()
+        capital.save()
+        
+        return Response({
+            'success': True,
+            'message': 'Enterprise claimed successfully',
+            'claimed_by': email,
+            'claimed_at': capital.claimed_at
+        })
 
 
 class DirectorySubmissionViewSet(viewsets.ModelViewSet):
@@ -131,13 +240,33 @@ class DirectorySubmissionViewSet(viewsets.ModelViewSet):
     """
     queryset = DirectorySubmission.objects.all()
     serializer_class = DirectorySubmissionSerializer
-    http_method_names = ['get', 'post']  # Only allow read and create
+    http_method_names = ['get', 'post']
     
     def get_queryset(self):
-        # Regular users can only see their own submissions
         if self.request.user.is_staff:
             return DirectorySubmission.objects.all()
         return DirectorySubmission.objects.none()
+
+
+class SponsorViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for sponsors.
+    """
+    queryset = Sponsor.objects.filter(status='active')
+    serializer_class = SponsorSerializer
+    ordering = ['-featured', 'tier', 'joined_at']
+    
+    @action(detail=False, methods=['post'])
+    def apply(self, request):
+        """Submit sponsor application"""
+        serializer = SponsorSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(status='pending')
+            return Response({
+                'success': True,
+                'message': 'Sponsor application submitted successfully'
+            }, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 # Murmurations Protocol Views
