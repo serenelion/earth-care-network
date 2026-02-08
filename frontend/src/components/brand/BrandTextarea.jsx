@@ -20,18 +20,7 @@ const BrandTextarea = ({
             required={required}
             rows={rows}
             className={`brand-textarea ${className}`}
-            style={{
-                width: '100%',
-                padding: 'var(--space-md) var(--space-lg)',
-                fontSize: 'var(--font-size-base)',
-                border: '2px solid var(--border-medium)',
-                borderRadius: 'var(--radius-lg)',
-                transition: 'all var(--transition-fast)',
-                backgroundColor: 'var(--bg-primary)',
-                resize: 'vertical',
-                minHeight: '120px',
-                ...style
-            }}
+            style={style}
         />
     );
 };

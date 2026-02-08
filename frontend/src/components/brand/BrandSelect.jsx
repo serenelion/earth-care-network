@@ -17,17 +17,7 @@ const BrandSelect = ({
             onChange={onChange}
             required={required}
             className={`brand-select ${className}`}
-            style={{
-                width: '100%',
-                padding: 'var(--space-md) var(--space-lg)',
-                fontSize: 'var(--font-size-base)',
-                border: '2px solid var(--border-medium)',
-                borderRadius: 'var(--radius-lg)',
-                transition: 'all var(--transition-fast)',
-                backgroundColor: 'var(--bg-primary)',
-                cursor: 'pointer',
-                ...style
-            }}
+            style={style}
         >
             {options.map((option) => (
                 <option key={option.value} value={option.value}>

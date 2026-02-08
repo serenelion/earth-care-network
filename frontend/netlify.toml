@@ -5,6 +5,12 @@
 [build.environment]
   NODE_VERSION = "18"
 
+[context.production.environment]
+  VITE_API_URL = "https://earth-care-network-backend.up.railway.app/api"
+
+[context.deploy-preview.environment]
+  VITE_API_URL = "https://earth-care-network-backend-preview.up.railway.app/api"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

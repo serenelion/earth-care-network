@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import { getSponsors, applyAsSponsor } from '../api';
 import BrandButton from '../components/brand/BrandButton';
 import BrandInput from '../components/brand/BrandInput';
 import BrandSelect from '../components/brand/BrandSelect';
@@ -13,12 +15,14 @@ function Sponsors() {
     website_url: '',
     logo_url: '',
     description: '',
+    commitment: '',
     contact_name: '',
     contact_email: '',
-    tier: 'community',
-    contribution_amount: ''
+    tier: 'community'
   });
+  const [submitting, setSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     loadSponsors();
@@ -38,57 +42,74 @@ function Sponsors() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitting(true);
+    setError(null);
     try {
-      await applyAsSponsor(formData);
+      // Combine description and commitment for the backend description field
+      const fullDescription = `Organization Bio: ${formData.description}\n\nCommitment to Earth Care Network: ${formData.commitment}`;
+
+      const payload = {
+        name: formData.name,
+        website_url: formData.website_url,
+        logo_url: formData.logo_url,
+        description: fullDescription,
+        contact_name: formData.contact_name,
+        contact_email: formData.contact_email,
+        tier: formData.tier
+      };
+
+      await applyAsSponsor(payload);
       setSubmitSuccess(true);
       setFormData({
         name: '',
         website_url: '',
         logo_url: '',
         description: '',
+        commitment: '',
         contact_name: '',
         contact_email: '',
-        tier: 'community',
-        contribution_amount: ''
+        tier: 'community'
       });
       setTimeout(() => {
         setShowApplication(false);
         setSubmitSuccess(false);
-      }, 3000);
+      }, 5000);
     } catch (err) {
+      setError('Failed to submit application. Please check your inputs and try again.');
       console.error('Error submitting application:', err);
+    } finally {
+      setSubmitting(false);
     }
   };
 
   const tierInfo = {
     founding: {
       title: 'Founding Sponsor',
-      amount: '$50,000+',
+      tagline: 'Strategic visionaries shaping the future of the network.',
       benefits: ['Prominent logo placement', 'Dedicated feature page', 'Priority support', 'Advisory board seat', 'Co-branding opportunities']
     },
     platinum: {
       title: 'Platinum Sponsor',
-      amount: '$25,000+',
+      tagline: 'High-impact partners driving regenerative growth.',
       benefits: ['Large logo placement', 'Featured in newsletters', 'Priority support', 'Quarterly meetings', 'Social media recognition']
     },
     gold: {
       title: 'Gold Sponsor',
-      amount: '$10,000+',
+      tagline: 'Dedicated supporters of ecosystem restoration.',
       benefits: ['Medium logo placement', 'Mentioned in updates', 'Standard support', 'Annual meeting', 'Community recognition']
     },
     silver: {
       title: 'Silver Sponsor',
-      amount: '$5,000+',
+      tagline: 'Committed contributors to the regenerative economy.',
       benefits: ['Logo listing', 'Newsletter mentions', 'Community access', 'Annual report feature']
     },
     community: {
       title: 'Community Supporter',
-      amount: '$1,000+',
+      tagline: 'Foundational members of our thriving ecosystem.',
       benefits: ['Name listing', 'Community recognition', 'Newsletter updates']
     }
   };
 
-  // Mock TerraLux as founding sponsor if not in actual data
   const terraluxSponsor = {
     id: 'terralux',
     name: 'TerraLux',
@@ -105,8 +126,8 @@ function Sponsors() {
         <div className="hero-content">
           <h1>Our Sponsors</h1>
           <p>
-            Supporting the regenerative economy through partnerships,
-            funding, and community building.
+            Earth Care Network is powered by organizations committed to ethical business
+            development and the transition to a regenerative economy.
           </p>
         </div>
       </div>
@@ -160,7 +181,7 @@ function Sponsors() {
       {/* Other Sponsors */}
       {!loading && sponsors.length > 0 && (
         <div className="content-section">
-          <h2 className="section-title">Our Community of Supporters</h2>
+          <h2 className="section-title">A Network of Value & Purpose</h2>
           <div className="directory-grid">
             {sponsors.map(sponsor => (
               <div key={sponsor.id} className={`directory-card ${sponsor.featured ? 'featured' : ''}`}>
@@ -184,7 +205,9 @@ function Sponsors() {
                 }}>
                   {tierInfo[sponsor.tier]?.title || sponsor.tier}
                 </div>
-                <p className="description">{sponsor.description}</p>
+                <p className="description" style={{ fontSize: 'var(--font-size-sm)' }}>
+                  {sponsor.description.split('\n\nCommitment')[0].replace('Organization Bio: ', '')}
+                </p>
                 <a
                   href={sponsor.website_url}
                   target="_blank"
@@ -200,11 +223,12 @@ function Sponsors() {
         </div>
       )}
 
-      {/* Sponsorship Tiers */}
+      {/* Sponsorship Opportunities (No Prices) */}
       <div className="content-section">
-        <h2 className="section-title">Sponsorship Opportunities</h2>
+        <h2 className="section-title">Support the Movement</h2>
         <p style={{ marginBottom: 'var(--space-2xl)', fontSize: 'var(--font-size-lg)', color: 'var(--text-secondary)' }}>
-          Join TerraLux and other visionary organizations in supporting the regenerative economy.
+          Join the ecosystem of visionary organizations leading the regenerative revolution.
+          We focus on value alignment and shared purpose.
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'var(--space-xl)' }}>
@@ -217,33 +241,36 @@ function Sponsors() {
                 borderRadius: 'var(--radius-lg)',
                 padding: 'var(--space-xl)',
                 boxShadow: key === 'founding' ? 'var(--shadow-lg)' : 'var(--shadow-sm)',
-                color: key === 'founding' ? 'white' : 'inherit'
+                color: key === 'founding' ? 'white' : 'inherit',
+                display: 'flex',
+                flexDirection: 'column'
               }}
             >
               <h3 style={{
-                marginBottom: 'var(--space-md)',
+                marginBottom: 'var(--space-sm)',
                 fontSize: 'var(--font-size-xl)',
                 color: key === 'founding' ? 'white' : 'var(--earth-green)'
               }}>
                 {tier.title}
               </h3>
-              <div style={{
-                fontSize: 'var(--font-size-2xl)',
-                fontWeight: 'bold',
+              <p style={{
+                fontSize: 'var(--font-size-sm)',
                 marginBottom: 'var(--space-lg)',
-                color: key === 'founding' ? 'white' : 'var(--terralux-gold)'
+                opacity: 0.9,
+                fontStyle: 'italic'
               }}>
-                {tier.amount}
-              </div>
+                {tier.tagline}
+              </p>
               <ul style={{
                 listStyle: 'none',
                 padding: 0,
                 lineHeight: 'var(--line-height-relaxed)',
-                color: key === 'founding' ? 'rgba(255,255,255,0.95)' : 'var(--text-secondary)'
+                color: key === 'founding' ? 'rgba(255,255,255,0.95)' : 'var(--text-secondary)',
+                marginTop: 'auto'
               }}>
                 {tier.benefits.map((benefit, index) => (
                   <li key={index} style={{ marginBottom: 'var(--space-sm)', display: 'flex', alignItems: 'start', gap: 'var(--space-sm)' }}>
-                    <span>✓</span>
+                    <span style={{ color: key === 'founding' ? 'white' : 'var(--terralux-gold)' }}>✓</span>
                     <span>{benefit}</span>
                   </li>
                 ))}
@@ -257,11 +284,11 @@ function Sponsors() {
       <div className="hero" style={{ marginTop: 'var(--space-3xl)' }}>
         <div className="hero-content">
           <h2 style={{ fontSize: 'var(--font-size-3xl)', marginBottom: 'var(--space-md)' }}>
-            Become a Sponsor
+            Start Your Sponsorship Journey
           </h2>
           <p style={{ marginBottom: 'var(--space-xl)' }}>
-            Support the regenerative economy and gain visibility within a growing community
-            of changemakers, projects, and conscious investors.
+            Are you an enterprise committed to ethical business development?
+            Partner with us to grow the regenerative economy.
           </p>
           {!showApplication && (
             <BrandButton
@@ -269,15 +296,19 @@ function Sponsors() {
               variant="primary"
               style={{ fontSize: 'var(--font-size-lg)' }}
             >
-              Apply to Sponsor
+              Explore Sponsorship Alignment
             </BrandButton>
           )}
         </div>
       </div>
 
       {showApplication && (
-        <div className="content-section">
-          <h2 className="section-title">Sponsorship Application</h2>
+        <div className="content-section" id="application-form">
+          <h2 className="section-title">Alignment Application</h2>
+          <p style={{ marginBottom: 'var(--space-xl)', color: 'var(--text-secondary)' }}>
+            Tell us about your organization and your commitment to regenerative practices.
+            Our team will reach out to discuss the best way to align our goals.
+          </p>
 
           {submitSuccess && (
             <div style={{
@@ -288,7 +319,13 @@ function Sponsors() {
               marginBottom: 'var(--space-xl)',
               textAlign: 'center'
             }}>
-              ✓ Application submitted successfully! We'll be in touch soon.
+              ✓ Application submitted successfully! We'll be in touch soon to discuss alignment.
+            </div>
+          )}
+
+          {error && (
+            <div className="error" style={{ marginBottom: 'var(--space-xl)' }}>
+              {error}
             </div>
           )}
 
@@ -298,43 +335,58 @@ function Sponsors() {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                placeholder="Enterprise Name"
               />
             </BrandFormField>
 
-            <BrandFormField label="Website URL" required>
-              <BrandInput
-                type="url"
-                required
-                value={formData.website_url}
-                onChange={(e) => setFormData({ ...formData, website_url: e.target.value })}
-              />
-            </BrandFormField>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-md)' }}>
+              <BrandFormField label="Website URL" required>
+                <BrandInput
+                  type="url"
+                  required
+                  value={formData.website_url}
+                  onChange={(e) => setFormData({ ...formData, website_url: e.target.value })}
+                  placeholder="https://..."
+                />
+              </BrandFormField>
+              <BrandFormField label="Logo URL (Icon/Avatar)" required>
+                <BrandInput
+                  type="url"
+                  required
+                  placeholder="https://.../logo.png"
+                  value={formData.logo_url}
+                  onChange={(e) => setFormData({ ...formData, logo_url: e.target.value })}
+                />
+              </BrandFormField>
+            </div>
 
-            <BrandFormField label="Logo URL" required>
-              <BrandInput
-                type="url"
-                required
-                placeholder="https://example.com/logo.png"
-                value={formData.logo_url}
-                onChange={(e) => setFormData({ ...formData, logo_url: e.target.value })}
-              />
-            </BrandFormField>
-
-            <BrandFormField label="Description" required>
+            <BrandFormField label="Organization Bio" required>
               <BrandTextarea
                 required
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                placeholder="Tell us about your organization..."
+                placeholder="Tell us about your organization's mission..."
+                rows={3}
+              />
+            </BrandFormField>
+
+            <BrandFormField label="Why are you committed to sponsoring Earth Care Network?" required>
+              <BrandTextarea
+                required
+                value={formData.commitment}
+                onChange={(e) => setFormData({ ...formData, commitment: e.target.value })}
+                placeholder="Explain your alignment with the regenerative economy and ethical business development..."
+                rows={5}
               />
             </BrandFormField>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: 'var(--space-md)' }}>
-              <BrandFormField label="Contact Name" required>
+              <BrandFormField label="Primary Contact" required>
                 <BrandInput
                   required
                   value={formData.contact_name}
                   onChange={(e) => setFormData({ ...formData, contact_name: e.target.value })}
+                  placeholder="Contact Name"
                 />
               </BrandFormField>
 
@@ -344,37 +396,34 @@ function Sponsors() {
                   required
                   value={formData.contact_email}
                   onChange={(e) => setFormData({ ...formData, contact_email: e.target.value })}
+                  placeholder="email@organization.com"
                 />
               </BrandFormField>
             </div>
 
-            <BrandFormField label="Sponsorship Tier" required>
+            <BrandFormField label="Desired Alignment Level" required>
               <BrandSelect
                 required
                 value={formData.tier}
                 onChange={(e) => setFormData({ ...formData, tier: e.target.value })}
                 options={[
-                  { value: 'community', label: 'Community Supporter ($1,000+)' },
-                  { value: 'silver', label: 'Silver Sponsor ($5,000+)' },
-                  { value: 'gold', label: 'Gold Sponsor ($10,000+)' },
-                  { value: 'platinum', label: 'Platinum Sponsor ($25,000+)' },
-                  { value: 'founding', label: 'Founding Sponsor ($50,000+)' },
+                  { value: 'community', label: 'Community Supporter' },
+                  { value: 'silver', label: 'Silver Sponsor' },
+                  { value: 'gold', label: 'Gold Sponsor' },
+                  { value: 'platinum', label: 'Platinum Sponsor' },
+                  { value: 'founding', label: 'Founding Partner' },
                 ]}
               />
             </BrandFormField>
 
-            <BrandFormField label="Contribution Amount (optional)">
-              <BrandInput
-                type="number"
-                value={formData.contribution_amount}
-                onChange={(e) => setFormData({ ...formData, contribution_amount: e.target.value })}
-                placeholder="USD"
-              />
-            </BrandFormField>
-
-            <div style={{ display: 'flex', gap: 'var(--space-md)', marginTop: 'var(--space-lg)' }}>
-              <BrandButton type="submit" variant="primary">
-                Submit Application
+            <div style={{ display: 'flex', gap: 'var(--space-md)', marginTop: 'var(--space-xl)' }}>
+              <BrandButton
+                type="submit"
+                variant="primary"
+                disabled={submitting}
+                className="btn-premium"
+              >
+                {submitting ? 'Sending...' : 'Submit Alignment Application'}
               </BrandButton>
               <BrandButton
                 type="button"

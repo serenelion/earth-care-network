@@ -20,16 +20,7 @@ const BrandInput = ({
             placeholder={placeholder}
             required={required}
             className={`brand-input ${className}`}
-            style={{
-                width: '100%',
-                padding: 'var(--space-md) var(--space-lg)',
-                fontSize: 'var(--font-size-base)',
-                border: '2px solid var(--border-medium)',
-                borderRadius: 'var(--radius-lg)',
-                transition: 'all var(--transition-fast)',
-                backgroundColor: 'var(--bg-primary)',
-                ...style
-            }}
+            style={style}
         />
     );
 };

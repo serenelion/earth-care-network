@@ -17,16 +17,8 @@ const BrandFormField = ({
             }}
         >
             {label && (
-                <label
-                    style={{
-                        display: 'block',
-                        marginBottom: 'var(--space-sm)',
-                        fontWeight: 'var(--font-weight-medium)',
-                        color: 'var(--earth-green)',
-                        fontSize: 'var(--font-size-sm)'
-                    }}
-                >
-                    {label} {required && <span style={{ color: 'var(--error)' }}>*</span>}
+                <label className="brand-form-label">
+                    {label} {required && <span className="required-mark">*</span>}
                 </label>
             )}
             {children}

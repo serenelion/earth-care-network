@@ -11,6 +11,7 @@ import CapitalDetail from './pages/CapitalDetail';
 import Submit from './pages/Submit';
 import About from './pages/About';
 import Sponsors from './pages/Sponsors';
+import BrowseAll from './pages/BrowseAll';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -37,7 +38,7 @@ function App() {
             </Link>
 
             {/* Mobile Menu Toggle */}
-            <button 
+            <button
               className={`mobile-menu-toggle ${mobileMenuOpen ? 'open' : ''}`}
               onClick={toggleMobileMenu}
               aria-label="Toggle navigation menu"
@@ -49,47 +50,33 @@ function App() {
 
             {/* Navigation Links */}
             <div className={`nav-links ${mobileMenuOpen ? 'mobile-open' : ''}`}>
-              <NavLink 
-                to="/projects" 
+              <NavLink
+                to="/browse"
                 className={({ isActive }) => isActive ? 'active' : ''}
                 onClick={closeMobileMenu}
               >
-                Projects
+                Browse
               </NavLink>
-              <NavLink 
-                to="/services" 
-                className={({ isActive }) => isActive ? 'active' : ''}
-                onClick={closeMobileMenu}
-              >
-                Services
-              </NavLink>
-              <NavLink 
-                to="/capital" 
-                className={({ isActive }) => isActive ? 'active' : ''}
-                onClick={closeMobileMenu}
-              >
-                Capital
-              </NavLink>
-              <NavLink 
-                to="/about" 
+              <NavLink
+                to="/about"
                 className={({ isActive }) => isActive ? 'active' : ''}
                 onClick={closeMobileMenu}
               >
                 About
               </NavLink>
-              <NavLink 
-                to="/sponsors" 
-                className={({ isActive }) => isActive ? 'active' : ''}
+              <NavLink
+                to="/sponsors"
+                className={({ isActive }) => `sponsor-btn ${isActive ? 'active' : ''}`}
                 onClick={closeMobileMenu}
               >
-                Sponsors
+                Become a Sponsor
               </NavLink>
-              <NavLink 
-                to="/submit" 
+              <NavLink
+                to="/submit"
                 className={({ isActive }) => `submit-btn ${isActive ? 'active' : ''}`}
                 onClick={closeMobileMenu}
               >
-                Submit
+                Add Your Enterprise
               </NavLink>
             </div>
           </div>
@@ -97,7 +84,9 @@ function App() {
 
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<BrowseAll />} />
+            <Route path="/browse" element={<BrowseAll />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:id" element={<ProjectDetail />} />
             <Route path="/services" element={<Services />} />
@@ -119,36 +108,39 @@ function App() {
                 economy through technology and community.
               </p>
             </div>
-            
+
             <div className="footer-section">
               <h4>Directory</h4>
+              <Link to="/browse" onClick={closeMobileMenu}>Browse All</Link>
               <Link to="/projects" onClick={closeMobileMenu}>Land-Based Projects</Link>
               <Link to="/services" onClick={closeMobileMenu}>Service Providers</Link>
               <Link to="/capital" onClick={closeMobileMenu}>Capital Sources</Link>
-              <Link to="/submit" onClick={closeMobileMenu}>Submit Listing</Link>
             </div>
-            
+
             <div className="footer-section">
-              <h4>About</h4>
-              <Link to="/about" onClick={closeMobileMenu}>Our Mission</Link>
+              <h4>Organization</h4>
+              <Link to="/about" onClick={closeMobileMenu}>About Us</Link>
               <Link to="/sponsors" onClick={closeMobileMenu}>Sponsors</Link>
-              <a href="https://terra-lux.org" target="_blank" rel="noopener noreferrer">
-                TerraLux
-              </a>
-              <a href="https://murmurations.network" target="_blank" rel="noopener noreferrer">
-                Murmurations Network
-              </a>
+              <Link to="/submit" onClick={closeMobileMenu}>Add Your Enterprise</Link>
+              <a href="https://terra-lux.org" target="_blank" rel="noopener noreferrer">TerraLux</a>
             </div>
-            
+
+            <div className="footer-section">
+              <h4>Resources</h4>
+              <a href="https://murmurations.network" target="_blank" rel="noopener noreferrer">Murmurations Network</a>
+              <a href="https://regenerative.coop" target="_blank" rel="noopener noreferrer">Regenerative Economy</a>
+              <Link to="/about" onClick={closeMobileMenu}>Our Mission</Link>
+            </div>
+
             <div className="footer-section">
               <h4>Connect</h4>
               <p>
                 Join the regenerative economy movement. Connect with projects,
-                service providers, and funders building a better future.
+                service providers, and funders building a better future for all life on Earth.
               </p>
             </div>
           </div>
-          
+
           <div className="footer-bottom">
             <p>© 2026 Earth Care Network - Powered by <a href="https://terra-lux.org" target="_blank" rel="noopener noreferrer">TerraLux</a></p>
             <p style={{ marginTop: 'var(--space-sm)', fontSize: 'var(--font-size-sm)', opacity: 0.8 }}>
