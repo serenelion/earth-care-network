@@ -1,5 +1,8 @@
-import { useState } from 'react';
-import { submitEntry } from '../api';
+import BrandButton from '../components/brand/BrandButton';
+import BrandInput from '../components/brand/BrandInput';
+import BrandSelect from '../components/brand/BrandSelect';
+import BrandTextarea from '../components/brand/BrandTextarea';
+import BrandFormField from '../components/brand/BrandFormField';
 
 function Submit() {
   const [formData, setFormData] = useState({
@@ -64,49 +67,48 @@ function Submit() {
   };
 
   return (
-    <div>
-      <h2 style={{ marginBottom: '2rem', color: '#2d5016' }}>Submit a New Entry</h2>
+    <div className="fade-in">
+      <h2 style={{ marginBottom: '2rem', color: 'var(--earth-green)', fontSize: 'var(--font-size-3xl)' }}>Submit a New Entry</h2>
 
-      <div style={{ background: 'white', padding: '2rem', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
-        <p style={{ marginBottom: '2rem', color: '#666', lineHeight: '1.6' }}>
-          Help us grow the regenerative economy directory! Submit a land-based project, 
-          service provider, or capital source for review. All submissions are verified 
+      <div className="content-section">
+        <p style={{ marginBottom: '2rem', color: 'var(--text-secondary)', lineHeight: 'var(--line-height-relaxed)' }}>
+          Help us grow the regenerative economy directory! Submit a land-based project,
+          service provider, or capital source for review. All submissions are verified
           before being added to the directory.
         </p>
 
         {success && (
-          <div style={{ 
-            background: '#d4edda', 
-            border: '2px solid #28a745',
-            borderRadius: '6px',
-            padding: '1rem',
-            marginBottom: '2rem',
-            color: '#155724'
+          <div style={{
+            background: 'var(--success)',
+            color: 'white',
+            borderRadius: 'var(--radius-md)',
+            padding: 'var(--space-lg)',
+            marginBottom: 'var(--space-xl)',
+            textAlign: 'center'
           }}>
-            Thank you! Your submission has been received and will be reviewed soon.
+            ✓ Thank you! Your submission has been received and will be reviewed soon.
           </div>
         )}
 
         {error && <div className="error">{error}</div>}
 
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Entry Type *</label>
-            <select
+          <BrandFormField label="Entry Type" required>
+            <BrandSelect
               name="entry_type"
               value={formData.entry_type}
               onChange={handleChange}
               required
-            >
-              <option value="project">Land-Based Project</option>
-              <option value="service">Service Provider</option>
-              <option value="capital">Capital Source</option>
-            </select>
-          </div>
+              options={[
+                { value: 'project', label: 'Land-Based Project' },
+                { value: 'service', label: 'Service Provider' },
+                { value: 'capital', label: 'Capital Source' },
+              ]}
+            />
+          </BrandFormField>
 
-          <div className="form-group">
-            <label>Your Email *</label>
-            <input
+          <BrandFormField label="Your Email" required>
+            <BrandInput
               type="email"
               name="submitter_email"
               value={formData.submitter_email}
@@ -114,11 +116,10 @@ function Submit() {
               placeholder="your@email.com"
               required
             />
-          </div>
+          </BrandFormField>
 
-          <div className="form-group">
-            <label>Organization Name *</label>
-            <input
+          <BrandFormField label="Organization Name" required>
+            <BrandInput
               type="text"
               name="name"
               value={formData.name}
@@ -126,11 +127,10 @@ function Submit() {
               placeholder="Enter organization name"
               required
             />
-          </div>
+          </BrandFormField>
 
-          <div className="form-group">
-            <label>Website URL *</label>
-            <input
+          <BrandFormField label="Website URL" required>
+            <BrandInput
               type="url"
               name="url"
               value={formData.url}
@@ -138,11 +138,10 @@ function Submit() {
               placeholder="https://example.com"
               required
             />
-          </div>
+          </BrandFormField>
 
-          <div className="form-group">
-            <label>Location *</label>
-            <input
+          <BrandFormField label="Location" required>
+            <BrandInput
               type="text"
               name="location"
               value={formData.location}
@@ -150,11 +149,10 @@ function Submit() {
               placeholder="City, State/Country"
               required
             />
-          </div>
+          </BrandFormField>
 
-          <div className="form-group">
-            <label>Category *</label>
-            <input
+          <BrandFormField label="Category" required>
+            <BrandInput
               type="text"
               name="category"
               value={formData.category}
@@ -162,38 +160,37 @@ function Submit() {
               placeholder="e.g., Regenerative Farm, Design Consulting, Impact Investment"
               required
             />
-          </div>
+          </BrandFormField>
 
-          <div className="form-group">
-            <label>Description *</label>
-            <textarea
+          <BrandFormField label="Description" required>
+            <BrandTextarea
               name="description"
               value={formData.description}
               onChange={handleChange}
               placeholder="Provide a detailed description of the organization, its mission, and services..."
               required
             />
-          </div>
+          </BrandFormField>
 
-          <div className="form-group">
-            <label>Additional Notes</label>
-            <textarea
+          <BrandFormField label="Additional Notes">
+            <BrandTextarea
               name="submitter_notes"
               value={formData.submitter_notes}
               onChange={handleChange}
               placeholder="Any additional information you'd like to share..."
+              rows={3}
               style={{ minHeight: '100px' }}
             />
-          </div>
+          </BrandFormField>
 
-          <button 
-            type="submit" 
-            className="btn btn-primary"
+          <BrandButton
+            type="submit"
+            variant="primary"
             disabled={submitting}
-            style={{ width: '100%', fontSize: '1.1rem' }}
+            style={{ width: '100%', fontSize: '1.1rem', marginTop: 'var(--space-lg)' }}
           >
             {submitting ? 'Submitting...' : 'Submit Entry'}
-          </button>
+          </BrandButton>
         </form>
       </div>
     </div>

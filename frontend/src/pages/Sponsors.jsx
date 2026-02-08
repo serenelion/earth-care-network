@@ -1,5 +1,8 @@
-import { useState, useEffect } from 'react';
-import { getSponsors, applyAsSponsor } from '../api';
+import BrandButton from '../components/brand/BrandButton';
+import BrandInput from '../components/brand/BrandInput';
+import BrandSelect from '../components/brand/BrandSelect';
+import BrandTextarea from '../components/brand/BrandTextarea';
+import BrandFormField from '../components/brand/BrandFormField';
 
 function Sponsors() {
   const [sponsors, setSponsors] = useState([]);
@@ -111,19 +114,19 @@ function Sponsors() {
       {/* Founding Sponsor - TerraLux */}
       <div className="content-section" style={{ background: 'linear-gradient(135deg, var(--cream) 0%, white 100%)', border: '2px solid var(--terralux-gold)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-xl)', marginBottom: 'var(--space-xl)', flexWrap: 'wrap' }}>
-          <img 
-            src={terraluxSponsor.logo_url} 
-            alt="TerraLux" 
+          <img
+            src={terraluxSponsor.logo_url}
+            alt="TerraLux"
             style={{ width: '180px', height: 'auto' }}
           />
           <div style={{ flex: 1 }}>
-            <div style={{ 
-              display: 'inline-block', 
-              background: 'var(--terralux-gold)', 
-              color: 'white', 
-              padding: 'var(--space-xs) var(--space-md)', 
-              borderRadius: 'var(--radius-full)', 
-              fontSize: 'var(--font-size-xs)', 
+            <div style={{
+              display: 'inline-block',
+              background: 'var(--terralux-gold)',
+              color: 'white',
+              padding: 'var(--space-xs) var(--space-md)',
+              borderRadius: 'var(--radius-full)',
+              fontSize: 'var(--font-size-xs)',
               fontWeight: 'bold',
               marginBottom: 'var(--space-sm)'
             }}>
@@ -134,20 +137,20 @@ function Sponsors() {
             </h2>
           </div>
         </div>
-        
-        <p style={{ 
-          fontSize: 'var(--font-size-lg)', 
-          lineHeight: 'var(--line-height-relaxed)', 
+
+        <p style={{
+          fontSize: 'var(--font-size-lg)',
+          lineHeight: 'var(--line-height-relaxed)',
           color: 'var(--text-primary)',
           marginBottom: 'var(--space-lg)'
         }}>
           {terraluxSponsor.description}
         </p>
-        
-        <a 
-          href={terraluxSponsor.website_url} 
-          target="_blank" 
-          rel="noopener noreferrer" 
+
+        <a
+          href={terraluxSponsor.website_url}
+          target="_blank"
+          rel="noopener noreferrer"
           className="btn btn-primary"
         >
           Visit TerraLux →
@@ -162,30 +165,30 @@ function Sponsors() {
             {sponsors.map(sponsor => (
               <div key={sponsor.id} className={`directory-card ${sponsor.featured ? 'featured' : ''}`}>
                 <div style={{ marginBottom: 'var(--space-md)', height: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <img 
-                    src={sponsor.logo_url} 
+                  <img
+                    src={sponsor.logo_url}
                     alt={sponsor.name}
                     style={{ maxWidth: '100%', maxHeight: '80px', objectFit: 'contain' }}
                   />
                 </div>
                 <h3>{sponsor.name}</h3>
-                <div style={{ 
-                  display: 'inline-block', 
-                  background: 'var(--bg-accent)', 
-                  color: 'var(--earth-green)', 
-                  padding: 'var(--space-xs) var(--space-md)', 
-                  borderRadius: 'var(--radius-full)', 
-                  fontSize: 'var(--font-size-xs)', 
+                <div style={{
+                  display: 'inline-block',
+                  background: 'var(--bg-accent)',
+                  color: 'var(--earth-green)',
+                  padding: 'var(--space-xs) var(--space-md)',
+                  borderRadius: 'var(--radius-full)',
+                  fontSize: 'var(--font-size-xs)',
                   fontWeight: 'bold',
                   marginBottom: 'var(--space-md)'
                 }}>
                   {tierInfo[sponsor.tier]?.title || sponsor.tier}
                 </div>
                 <p className="description">{sponsor.description}</p>
-                <a 
-                  href={sponsor.website_url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href={sponsor.website_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn btn-secondary"
                   style={{ marginTop: 'auto' }}
                 >
@@ -203,10 +206,10 @@ function Sponsors() {
         <p style={{ marginBottom: 'var(--space-2xl)', fontSize: 'var(--font-size-lg)', color: 'var(--text-secondary)' }}>
           Join TerraLux and other visionary organizations in supporting the regenerative economy.
         </p>
-        
+
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'var(--space-xl)' }}>
           {Object.entries(tierInfo).map(([key, tier]) => (
-            <div 
+            <div
               key={key}
               style={{
                 background: key === 'founding' ? 'linear-gradient(135deg, var(--terralux-gold-light), var(--terralux-gold))' : 'white',
@@ -217,23 +220,23 @@ function Sponsors() {
                 color: key === 'founding' ? 'white' : 'inherit'
               }}
             >
-              <h3 style={{ 
-                marginBottom: 'var(--space-md)', 
+              <h3 style={{
+                marginBottom: 'var(--space-md)',
                 fontSize: 'var(--font-size-xl)',
                 color: key === 'founding' ? 'white' : 'var(--earth-green)'
               }}>
                 {tier.title}
               </h3>
-              <div style={{ 
-                fontSize: 'var(--font-size-2xl)', 
-                fontWeight: 'bold', 
+              <div style={{
+                fontSize: 'var(--font-size-2xl)',
+                fontWeight: 'bold',
                 marginBottom: 'var(--space-lg)',
                 color: key === 'founding' ? 'white' : 'var(--terralux-gold)'
               }}>
                 {tier.amount}
               </div>
-              <ul style={{ 
-                listStyle: 'none', 
+              <ul style={{
+                listStyle: 'none',
                 padding: 0,
                 lineHeight: 'var(--line-height-relaxed)',
                 color: key === 'founding' ? 'rgba(255,255,255,0.95)' : 'var(--text-secondary)'
@@ -261,13 +264,13 @@ function Sponsors() {
             of changemakers, projects, and conscious investors.
           </p>
           {!showApplication && (
-            <button 
-              onClick={() => setShowApplication(true)} 
-              className="btn btn-primary"
+            <BrandButton
+              onClick={() => setShowApplication(true)}
+              variant="primary"
               style={{ fontSize: 'var(--font-size-lg)' }}
             >
               Apply to Sponsor
-            </button>
+            </BrandButton>
           )}
         </div>
       </div>
@@ -275,13 +278,13 @@ function Sponsors() {
       {showApplication && (
         <div className="content-section">
           <h2 className="section-title">Sponsorship Application</h2>
-          
+
           {submitSuccess && (
-            <div style={{ 
-              background: 'var(--success)', 
-              color: 'white', 
-              padding: 'var(--space-lg)', 
-              borderRadius: 'var(--radius-md)', 
+            <div style={{
+              background: 'var(--success)',
+              color: 'white',
+              padding: 'var(--space-lg)',
+              borderRadius: 'var(--radius-md)',
               marginBottom: 'var(--space-xl)',
               textAlign: 'center'
             }}>
@@ -290,106 +293,96 @@ function Sponsors() {
           )}
 
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label>Organization Name *</label>
-              <input
-                type="text"
+            <BrandFormField label="Organization Name" required>
+              <BrandInput
                 required
                 value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
-            </div>
+            </BrandFormField>
 
-            <div className="form-group">
-              <label>Website URL *</label>
-              <input
+            <BrandFormField label="Website URL" required>
+              <BrandInput
                 type="url"
                 required
                 value={formData.website_url}
-                onChange={(e) => setFormData({...formData, website_url: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, website_url: e.target.value })}
               />
-            </div>
+            </BrandFormField>
 
-            <div className="form-group">
-              <label>Logo URL *</label>
-              <input
+            <BrandFormField label="Logo URL" required>
+              <BrandInput
                 type="url"
                 required
                 placeholder="https://example.com/logo.png"
                 value={formData.logo_url}
-                onChange={(e) => setFormData({...formData, logo_url: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, logo_url: e.target.value })}
               />
-            </div>
+            </BrandFormField>
 
-            <div className="form-group">
-              <label>Description *</label>
-              <textarea
+            <BrandFormField label="Description" required>
+              <BrandTextarea
                 required
                 value={formData.description}
-                onChange={(e) => setFormData({...formData, description: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 placeholder="Tell us about your organization..."
-                style={{ minHeight: '120px' }}
               />
-            </div>
+            </BrandFormField>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-md)' }}>
-              <div className="form-group">
-                <label>Contact Name *</label>
-                <input
-                  type="text"
+            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: 'var(--space-md)' }}>
+              <BrandFormField label="Contact Name" required>
+                <BrandInput
                   required
                   value={formData.contact_name}
-                  onChange={(e) => setFormData({...formData, contact_name: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, contact_name: e.target.value })}
                 />
-              </div>
+              </BrandFormField>
 
-              <div className="form-group">
-                <label>Contact Email *</label>
-                <input
+              <BrandFormField label="Contact Email" required>
+                <BrandInput
                   type="email"
                   required
                   value={formData.contact_email}
-                  onChange={(e) => setFormData({...formData, contact_email: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, contact_email: e.target.value })}
                 />
-              </div>
+              </BrandFormField>
             </div>
 
-            <div className="form-group">
-              <label>Sponsorship Tier *</label>
-              <select
+            <BrandFormField label="Sponsorship Tier" required>
+              <BrandSelect
                 required
                 value={formData.tier}
-                onChange={(e) => setFormData({...formData, tier: e.target.value})}
-              >
-                <option value="community">Community Supporter ($1,000+)</option>
-                <option value="silver">Silver Sponsor ($5,000+)</option>
-                <option value="gold">Gold Sponsor ($10,000+)</option>
-                <option value="platinum">Platinum Sponsor ($25,000+)</option>
-                <option value="founding">Founding Sponsor ($50,000+)</option>
-              </select>
-            </div>
+                onChange={(e) => setFormData({ ...formData, tier: e.target.value })}
+                options={[
+                  { value: 'community', label: 'Community Supporter ($1,000+)' },
+                  { value: 'silver', label: 'Silver Sponsor ($5,000+)' },
+                  { value: 'gold', label: 'Gold Sponsor ($10,000+)' },
+                  { value: 'platinum', label: 'Platinum Sponsor ($25,000+)' },
+                  { value: 'founding', label: 'Founding Sponsor ($50,000+)' },
+                ]}
+              />
+            </BrandFormField>
 
-            <div className="form-group">
-              <label>Contribution Amount (optional)</label>
-              <input
+            <BrandFormField label="Contribution Amount (optional)">
+              <BrandInput
                 type="number"
                 value={formData.contribution_amount}
-                onChange={(e) => setFormData({...formData, contribution_amount: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, contribution_amount: e.target.value })}
                 placeholder="USD"
               />
-            </div>
+            </BrandFormField>
 
-            <div style={{ display: 'flex', gap: 'var(--space-md)' }}>
-              <button type="submit" className="btn btn-primary">
+            <div style={{ display: 'flex', gap: 'var(--space-md)', marginTop: 'var(--space-lg)' }}>
+              <BrandButton type="submit" variant="primary">
                 Submit Application
-              </button>
-              <button 
-                type="button" 
-                onClick={() => setShowApplication(false)} 
-                className="btn btn-secondary"
+              </BrandButton>
+              <BrandButton
+                type="button"
+                onClick={() => setShowApplication(false)}
+                variant="secondary"
               >
                 Cancel
-              </button>
+              </BrandButton>
             </div>
           </form>
         </div>
