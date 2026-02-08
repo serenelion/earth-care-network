@@ -1,6 +1,8 @@
 from rest_framework import viewsets, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import LandBasedProject, ServiceProvider, CapitalSource, DirectorySubmission
 from .serializers import (
@@ -8,6 +10,11 @@ from .serializers import (
     ServiceProviderSerializer,
     CapitalSourceSerializer,
     DirectorySubmissionSerializer
+)
+from .murmurations import (
+    generate_project_profile,
+    generate_service_profile,
+    generate_capital_profile
 )
 
 
@@ -19,7 +26,7 @@ class LandBasedProjectViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = LandBasedProject.objects.filter(is_verified=True)
     serializer_class = LandBasedProjectSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    filterset_fields = ['category', 'featured']
+    filterset_fields = ['category', 'featured']  # Removed tags - JSONField not supported
     search_fields = ['name', 'description', 'location']
     ordering_fields = ['created_at', 'name', 'featured']
     ordering = ['-featured', '-created_at']
@@ -47,7 +54,7 @@ class ServiceProviderViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = ServiceProvider.objects.filter(is_verified=True)
     serializer_class = ServiceProviderSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    filterset_fields = ['category', 'featured']
+    filterset_fields = ['category', 'featured']  # Removed tags - JSONField not supported
     search_fields = ['name', 'description', 'location']
     ordering_fields = ['created_at', 'name', 'featured']
     ordering = ['-featured', '-created_at']
@@ -83,7 +90,7 @@ class CapitalSourceViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = CapitalSource.objects.filter(is_verified=True)
     serializer_class = CapitalSourceSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    filterset_fields = ['category', 'funding_type', 'featured']
+    filterset_fields = ['category', 'funding_type', 'featured']  # Removed tags - JSONField not supported
     search_fields = ['name', 'description', 'location']
     ordering_fields = ['created_at', 'name', 'featured']
     ordering = ['-featured', '-created_at']
@@ -131,3 +138,25 @@ class DirectorySubmissionViewSet(viewsets.ModelViewSet):
         if self.request.user.is_staff:
             return DirectorySubmission.objects.all()
         return DirectorySubmission.objects.none()
+
+
+# Murmurations Protocol Views
+def murmurations_project_profile(request, project_id):
+    """Return Murmurations-compatible JSON profile for a project."""
+    project = get_object_or_404(LandBasedProject, pk=project_id, is_verified=True)
+    profile = generate_project_profile(project)
+    return JsonResponse(profile, json_dumps_params={'indent': 2})
+
+
+def murmurations_service_profile(request, service_id):
+    """Return Murmurations-compatible JSON profile for a service provider."""
+    service = get_object_or_404(ServiceProvider, pk=service_id, is_verified=True)
+    profile = generate_service_profile(service)
+    return JsonResponse(profile, json_dumps_params={'indent': 2})
+
+
+def murmurations_capital_profile(request, capital_id):
+    """Return Murmurations-compatible JSON profile for a capital source."""
+    capital = get_object_or_404(CapitalSource, pk=capital_id, is_verified=True)
+    profile = generate_capital_profile(capital)
+    return JsonResponse(profile, json_dumps_params={'indent': 2})

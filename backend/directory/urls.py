@@ -4,7 +4,10 @@ from .views import (
     LandBasedProjectViewSet,
     ServiceProviderViewSet,
     CapitalSourceViewSet,
-    DirectorySubmissionViewSet
+    DirectorySubmissionViewSet,
+    murmurations_project_profile,
+    murmurations_service_profile,
+    murmurations_capital_profile
 )
 
 router = DefaultRouter()
@@ -15,4 +18,8 @@ router.register(r'submissions', DirectorySubmissionViewSet, basename='submission
 
 urlpatterns = [
     path('', include(router.urls)),
+    # Murmurations Protocol endpoints
+    path('murmurations/projects/<int:project_id>.json', murmurations_project_profile, name='murmurations-project'),
+    path('murmurations/services/<int:service_id>.json', murmurations_service_profile, name='murmurations-service'),
+    path('murmurations/capital/<int:capital_id>.json', murmurations_capital_profile, name='murmurations-capital'),
 ]

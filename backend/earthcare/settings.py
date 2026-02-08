@@ -30,6 +30,9 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=Csv())
 
+# Site URL for Murmurations profiles
+SITE_URL = config('SITE_URL', default='http://localhost:8000')
+
 
 # Application definition
 
