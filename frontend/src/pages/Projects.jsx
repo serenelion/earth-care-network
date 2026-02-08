@@ -1,5 +1,12 @@
 import { useState, useEffect } from 'react';
 import { getProjects, getProjectCategories } from '../api';
+import DirectoryCard from '../components/DirectoryCard';
+import SearchFilters from '../components/SearchFilters';
+import LoadingState from '../components/LoadingState';
+import ErrorState from '../components/ErrorState';
+import EmptyState from '../components/EmptyState';
+import PageHeader from '../components/PageHeader';
+import { Link } from 'react-router-dom';
 
 function Projects() {
   const [projects, setProjects] = useState([]);
@@ -45,70 +52,46 @@ function Projects() {
   };
 
   return (
-    <div>
-      <h2 style={{ marginBottom: '2rem', color: '#2d5016' }}>Land-Based Projects</h2>
+    <div className="fade-in">
+      <PageHeader
+        title="Land-Based Projects"
+        subtitle="Discover regenerative farms, retreat centers, intentional communities, and educational centers pioneering sustainable living and ecosystem restoration."
+        icon="🌱"
+      />
 
-      <div className="search-filters">
-        <input
-          type="text"
-          className="search-box"
-          placeholder="Search projects..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        
-        <div className="filters">
-          <select 
-            className="filter-select"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            <option value="">All Categories</option>
-            {categories.map(cat => (
-              <option key={cat.value} value={cat.value}>
-                {cat.label}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
+      <SearchFilters
+        search={search}
+        onSearchChange={setSearch}
+        category={category}
+        onCategoryChange={setCategory}
+        categories={categories}
+        placeholder="Search projects by name, location, or description..."
+      />
 
-      {error && <div className="error">{error}</div>}
+      {error && <ErrorState message={error} onRetry={loadProjects} />}
 
       {loading ? (
-        <div className="loading">Loading projects...</div>
-      ) : (
-        <div className="grid">
+        <LoadingState message="Loading projects..." />
+      ) : projects.length > 0 ? (
+        <div className="directory-grid">
           {projects.map(project => (
-            <div key={project.id} className="card">
-              <h3>{project.name}</h3>
-              <div className="location">📍 {project.location}</div>
-              <div className="description">{project.description}</div>
-              <a 
-                href={project.url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-                style={{ marginTop: '1rem' }}
-              >
-                Visit Website
-              </a>
-              {project.tags && project.tags.length > 0 && (
-                <div className="tags">
-                  {project.tags.map((tag, idx) => (
-                    <span key={idx} className="tag">{tag}</span>
-                  ))}
-                </div>
-              )}
-            </div>
+            <DirectoryCard
+              key={project.id}
+              item={project}
+              type="project"
+            />
           ))}
         </div>
-      )}
-
-      {!loading && projects.length === 0 && !error && (
-        <div style={{ textAlign: 'center', padding: '3rem', color: '#666' }}>
-          No projects found. Try adjusting your search filters.
-        </div>
+      ) : (
+        <EmptyState
+          icon="🔍"
+          message="No projects found. Try adjusting your search filters."
+          action={
+            <Link to="/submit" className="btn btn-primary">
+              Submit a Project
+            </Link>
+          }
+        />
       )}
     </div>
   );

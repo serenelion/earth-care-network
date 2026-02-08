@@ -67,6 +67,9 @@ export const getCapitalSources = async (params = {}) => {
   return response.data;
 };
 
+// Alias for consistency
+export const getCapital = getCapitalSources;
+
 export const getCapitalSource = async (id) => {
   const response = await api.get(`/capital/${id}/`);
   return response.data;

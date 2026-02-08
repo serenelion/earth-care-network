@@ -1,5 +1,12 @@
 import { useState, useEffect } from 'react';
 import { getServices, getServiceCategories } from '../api';
+import DirectoryCard from '../components/DirectoryCard';
+import SearchFilters from '../components/SearchFilters';
+import LoadingState from '../components/LoadingState';
+import ErrorState from '../components/ErrorState';
+import EmptyState from '../components/EmptyState';
+import PageHeader from '../components/PageHeader';
+import { Link } from 'react-router-dom';
 
 function Services() {
   const [services, setServices] = useState([]);
@@ -45,92 +52,46 @@ function Services() {
   };
 
   return (
-    <div>
-      <h2 style={{ marginBottom: '2rem', color: '#2d5016' }}>Service Providers</h2>
+    <div className="fade-in">
+      <PageHeader
+        title="Service Providers"
+        subtitle="Connect with consultants, designers, and implementers offering regenerative design, permaculture, holistic management, and restoration services."
+        icon="🛠️"
+      />
 
-      <div className="search-filters">
-        <input
-          type="text"
-          className="search-box"
-          placeholder="Search services..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        
-        <div className="filters">
-          <select 
-            className="filter-select"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            <option value="">All Categories</option>
-            {categories.map(cat => (
-              <option key={cat.value} value={cat.value}>
-                {cat.label}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
+      <SearchFilters
+        search={search}
+        onSearchChange={setSearch}
+        category={category}
+        onCategoryChange={setCategory}
+        categories={categories}
+        placeholder="Search service providers by name, location, or specialization..."
+      />
 
-      {error && <div className="error">{error}</div>}
+      {error && <ErrorState message={error} onRetry={loadServices} />}
 
       {loading ? (
-        <div className="loading">Loading services...</div>
-      ) : (
-        <div className="grid">
+        <LoadingState message="Loading service providers..." />
+      ) : services.length > 0 ? (
+        <div className="directory-grid">
           {services.map(service => (
-            <div key={service.id} className="card">
-              <h3>{service.name}</h3>
-              <div className="location">📍 {service.location}</div>
-              <div className="description">{service.description}</div>
-              
-              {service.services && service.services.length > 0 && (
-                <div style={{ marginTop: '1rem', marginBottom: '1rem' }}>
-                  <strong>Services:</strong>
-                  <div style={{ marginTop: '0.5rem' }}>
-                    {service.services.map((s, idx) => (
-                      <span key={idx} style={{ 
-                        display: 'inline-block',
-                        background: '#f0f0f0',
-                        padding: '0.25rem 0.5rem',
-                        borderRadius: '4px',
-                        fontSize: '0.85rem',
-                        marginRight: '0.5rem',
-                        marginBottom: '0.5rem'
-                      }}>
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-              
-              <a 
-                href={service.url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-                style={{ marginTop: '1rem' }}
-              >
-                Visit Website
-              </a>
-              {service.tags && service.tags.length > 0 && (
-                <div className="tags">
-                  {service.tags.map((tag, idx) => (
-                    <span key={idx} className="tag">{tag}</span>
-                  ))}
-                </div>
-              )}
-            </div>
+            <DirectoryCard
+              key={service.id}
+              item={service}
+              type="service"
+            />
           ))}
         </div>
-      )}
-
-      {!loading && services.length === 0 && !error && (
-        <div style={{ textAlign: 'center', padding: '3rem', color: '#666' }}>
-          No services found. Try adjusting your search filters.
-        </div>
+      ) : (
+        <EmptyState
+          icon="🔍"
+          message="No service providers found. Try adjusting your search filters."
+          action={
+            <Link to="/submit" className="btn btn-primary">
+              Submit a Service Provider
+            </Link>
+          }
+        />
       )}
     </div>
   );
