@@ -1,0 +1,392 @@
+[
+  {
+    "name": "The Audacious Project",
+    "url": "https://audaciousproject.org/",
+    "category": "Philanthropic Funding",
+    "location": "Global",
+    "description": "Collaborative philanthropic initiative supporting bold solutions to the world's most urgent challenges, including environmental regeneration.",
+    "funding_type": "Grants",
+    "focus_areas": ["climate", "social-impact", "environmental-restoration", "systems-change"],
+    "tags": ["philanthropy", "grants", "large-scale", "impact"],
+    "contact": {
+      "website": "https://audaciousproject.org/"
+    }
+  },
+  {
+    "name": "Regenerative Capital Group",
+    "url": "https://www.regenerativecapitalgroup.com/",
+    "category": "Impact Investment Firm",
+    "location": "Canada",
+    "description": "Canadian impact investment firm investing in SME transitions, focusing on purpose-driven businesses and regenerative practices.",
+    "funding_type": "Equity Investment",
+    "focus_areas": ["business-acquisition", "SME", "regenerative-business", "social-impact"],
+    "tags": ["impact-investment", "equity", "business", "canada"],
+    "contact": {
+      "website": "https://www.regenerativecapitalgroup.com/"
+    }
+  },
+  {
+    "name": "Keystone Species Capital",
+    "url": "https://www.keystonespecies.co/",
+    "category": "Venture Capital",
+    "location": "USA",
+    "description": "Venture capital fund investing in regenerative agriculture, food systems, and climate solutions.",
+    "funding_type": "Venture Capital",
+    "focus_areas": ["regenerative-agriculture", "food-systems", "climate-tech", "agtech"],
+    "tags": ["venture-capital", "regenerative-agriculture", "food-systems", "climate"],
+    "contact": {
+      "website": "https://www.keystonespecies.co/"
+    }
+  },
+  {
+    "name": "RSF Social Finance",
+    "url": "https://rsfsocialfinance.org/",
+    "category": "Impact Investment & Loans",
+    "location": "California, USA",
+    "description": "Social finance organization providing loans, grants, and investment to food, agriculture, education, and environmental initiatives.",
+    "funding_type": "Loans, Grants, Investment",
+    "focus_areas": ["food-agriculture", "education", "ecological-wellbeing", "social-enterprise"],
+    "tags": ["social-finance", "loans", "grants", "impact-investment"],
+    "contact": {
+      "website": "https://rsfsocialfinance.org/"
+    }
+  },
+  {
+    "name": "Regeneration VC",
+    "url": "https://www.regeneration.vc/",
+    "category": "Venture Capital",
+    "location": "Europe",
+    "description": "Early-stage venture capital fund backing regenerative agriculture and food system innovators.",
+    "funding_type": "Venture Capital",
+    "focus_areas": ["regenerative-agriculture", "food-systems", "agtech", "climate-solutions"],
+    "tags": ["venture-capital", "early-stage", "regenerative-agriculture", "europe"],
+    "contact": {
+      "website": "https://www.regeneration.vc/"
+    }
+  },
+  {
+    "name": "Slow Money",
+    "url": "https://slowmoney.org/",
+    "category": "Local Investment Network",
+    "location": "USA (Multiple Chapters)",
+    "description": "Network catalyzing capital into local food systems, organic farming, and regenerative agriculture.",
+    "funding_type": "Local Investment, Loans",
+    "focus_areas": ["local-food", "organic-farming", "regenerative-agriculture", "small-business"],
+    "tags": ["local-investment", "food-systems", "network", "community"],
+    "contact": {
+      "website": "https://slowmoney.org/"
+    }
+  },
+  {
+    "name": "The Nature Conservancy",
+    "url": "https://www.nature.org/",
+    "category": "Conservation Grants",
+    "location": "Global",
+    "description": "Global conservation organization providing grants and funding for land conservation and regenerative practices.",
+    "funding_type": "Grants",
+    "focus_areas": ["conservation", "land-protection", "regenerative-agriculture", "climate"],
+    "tags": ["conservation", "grants", "global", "land-protection"],
+    "contact": {
+      "website": "https://www.nature.org/"
+    }
+  },
+  {
+    "name": "Patagonia Environmental Grants",
+    "url": "https://www.patagonia.com/actionworks/grants/",
+    "category": "Corporate Philanthropy",
+    "location": "USA",
+    "description": "Environmental grants supporting grassroots activists working to protect and restore ecosystems.",
+    "funding_type": "Grants",
+    "focus_areas": ["environmental-activism", "conservation", "climate", "grassroots"],
+    "tags": ["grants", "corporate-philanthropy", "environmental", "grassroots"],
+    "contact": {
+      "website": "https://www.patagonia.com/actionworks/grants/"
+    }
+  },
+  {
+    "name": "NRCS Conservation Programs",
+    "url": "https://www.nrcs.usda.gov/programs-initiatives",
+    "category": "Government Programs",
+    "location": "USA",
+    "description": "USDA programs providing financial assistance for conservation and regenerative agriculture practices.",
+    "funding_type": "Government Grants & Cost-Share",
+    "focus_areas": ["conservation", "regenerative-agriculture", "soil-health", "water-quality"],
+    "tags": ["government", "usda", "grants", "cost-share"],
+    "contact": {
+      "website": "https://www.nrcs.usda.gov/programs-initiatives"
+    }
+  },
+  {
+    "name": "Iroquois Valley Farmland REIT",
+    "url": "https://www.iroquoisvalley.com/",
+    "category": "Farmland Investment",
+    "location": "USA",
+    "description": "Real estate investment trust providing farmland financing for organic and regenerative farmers.",
+    "funding_type": "Farmland Financing",
+    "focus_areas": ["organic-farming", "regenerative-agriculture", "farmland-access", "real-estate"],
+    "tags": ["farmland", "reit", "organic", "regenerative-agriculture"],
+    "contact": {
+      "website": "https://www.iroquoisvalley.com/"
+    }
+  },
+  {
+    "name": "Regenerative Agriculture Innovation Fund",
+    "url": "https://www.raif.fund/",
+    "category": "Impact Investment Fund",
+    "location": "USA",
+    "description": "Investment fund supporting regenerative agriculture businesses and supply chain innovations.",
+    "funding_type": "Private Equity",
+    "focus_areas": ["regenerative-agriculture", "supply-chain", "food-systems", "business"],
+    "tags": ["impact-investment", "private-equity", "regenerative-agriculture", "supply-chain"],
+    "contact": {
+      "website": "https://www.raif.fund/"
+    }
+  },
+  {
+    "name": "Beneficial State Foundation",
+    "url": "https://beneficialstatefoundation.org/",
+    "category": "Community Development Finance",
+    "location": "California, USA",
+    "description": "Foundation supporting economic justice and environmental sustainability through grants and investments.",
+    "funding_type": "Grants & Impact Investment",
+    "focus_areas": ["economic-justice", "environmental-sustainability", "community-development", "social-enterprise"],
+    "tags": ["foundation", "grants", "community-development", "impact-investment"],
+    "contact": {
+      "website": "https://beneficialstatefoundation.org/"
+    }
+  },
+  {
+    "name": "Sustainable Agriculture Research & Education (SARE)",
+    "url": "https://www.sare.org/",
+    "category": "Research Grants",
+    "location": "USA",
+    "description": "USDA program providing grants for sustainable and regenerative agriculture research and education.",
+    "funding_type": "Research Grants",
+    "focus_areas": ["research", "education", "sustainable-agriculture", "farmer-innovation"],
+    "tags": ["research-grants", "usda", "sustainable-agriculture", "education"],
+    "contact": {
+      "website": "https://www.sare.org/"
+    }
+  },
+  {
+    "name": "Ecosystem Integrity Fund",
+    "url": "https://www.ecosystemintegrity.com/",
+    "category": "Impact Investment Fund",
+    "location": "Canada",
+    "description": "Investing in businesses that restore ecosystem integrity while generating returns.",
+    "funding_type": "Impact Investment",
+    "focus_areas": ["ecosystem-restoration", "conservation", "sustainable-business", "natural-capital"],
+    "tags": ["impact-investment", "ecosystem-restoration", "canada", "natural-capital"],
+    "contact": {
+      "website": "https://www.ecosystemintegrity.com/"
+    }
+  },
+  {
+    "name": "Armonia Fund",
+    "url": "https://www.armoniafund.org/",
+    "category": "Impact Investment Fund",
+    "location": "USA",
+    "description": "Patient capital for regenerative agriculture and agroforestry in Latin America.",
+    "funding_type": "Impact Investment",
+    "focus_areas": ["regenerative-agriculture", "agroforestry", "latin-america", "farmer-livelihoods"],
+    "tags": ["impact-investment", "agroforestry", "latin-america", "patient-capital"],
+    "contact": {
+      "website": "https://www.armoniafund.org/"
+    }
+  },
+  {
+    "name": "Tierra Fund",
+    "url": "https://tierrafund.org/",
+    "category": "Land Restoration Fund",
+    "location": "Africa",
+    "description": "Fund supporting land restoration and sustainable agriculture in Africa.",
+    "funding_type": "Grants & Investment",
+    "focus_areas": ["land-restoration", "africa", "sustainable-agriculture", "agroforestry"],
+    "tags": ["land-restoration", "africa", "grants", "agroforestry"],
+    "contact": {
+      "website": "https://tierrafund.org/"
+    }
+  },
+  {
+    "name": "AgriThority Foundation",
+    "url": "https://agrithority.com/foundation/",
+    "category": "Agricultural Grants",
+    "location": "USA",
+    "description": "Supporting agricultural innovation and regenerative practices through grants and technical assistance.",
+    "funding_type": "Grants",
+    "focus_areas": ["agricultural-innovation", "regenerative-practices", "farmer-support", "research"],
+    "tags": ["grants", "agriculture", "innovation", "foundation"],
+    "contact": {
+      "website": "https://agrithority.com/foundation/"
+    }
+  },
+  {
+    "name": "Whole Systems Foundation",
+    "url": "https://wholesystemsfoundation.org/",
+    "category": "Philanthropic Grants",
+    "location": "USA",
+    "description": "Grants for regenerative agriculture, community resilience, and ecosystem restoration.",
+    "funding_type": "Grants",
+    "focus_areas": ["regenerative-agriculture", "community-resilience", "ecosystem-restoration", "food-systems"],
+    "tags": ["grants", "philanthropy", "regenerative-agriculture", "community"],
+    "contact": {
+      "website": "https://wholesystemsfoundation.org/"
+    }
+  },
+  {
+    "name": "Better Food Ventures",
+    "url": "https://betterfoodventures.com/",
+    "category": "Venture Capital",
+    "location": "USA",
+    "description": "Early-stage venture capital for sustainable food and agriculture companies.",
+    "funding_type": "Venture Capital",
+    "focus_areas": ["food-systems", "sustainable-agriculture", "food-tech", "supply-chain"],
+    "tags": ["venture-capital", "food-systems", "early-stage", "sustainable"],
+    "contact": {
+      "website": "https://betterfoodventures.com/"
+    }
+  },
+  {
+    "name": "Builders Vision",
+    "url": "https://www.buildersvision.com/",
+    "category": "Impact Investment & Philanthropy",
+    "location": "USA",
+    "description": "Supporting climate solutions and regenerative systems through investment and philanthropy.",
+    "funding_type": "Investment & Grants",
+    "focus_areas": ["climate-solutions", "regenerative-systems", "environmental-justice", "systems-change"],
+    "tags": ["impact-investment", "philanthropy", "climate", "systems-change"],
+    "contact": {
+      "website": "https://www.buildersvision.com/"
+    }
+  },
+  {
+    "name": "Organic Farming Research Foundation",
+    "url": "https://ofrf.org/",
+    "category": "Research Grants",
+    "location": "California, USA",
+    "description": "Supporting organic farming research through grants to farmers and researchers.",
+    "funding_type": "Research Grants",
+    "focus_areas": ["organic-farming", "research", "farmer-led", "sustainable-agriculture"],
+    "tags": ["research-grants", "organic-farming", "farmer-research", "foundation"],
+    "contact": {
+      "website": "https://ofrf.org/"
+    }
+  },
+  {
+    "name": "Common Earth Foundation",
+    "url": "https://www.commonearth.org/",
+    "category": "Community-Based Grants",
+    "location": "USA",
+    "description": "Supporting community-based projects in sustainable agriculture and environmental justice.",
+    "funding_type": "Grants",
+    "focus_areas": ["community-based", "sustainable-agriculture", "environmental-justice", "local-food"],
+    "tags": ["grants", "community", "environmental-justice", "local-food"],
+    "contact": {
+      "website": "https://www.commonearth.org/"
+    }
+  },
+  {
+    "name": "Farm Credit",
+    "url": "https://www.farmcredit.com/",
+    "category": "Agricultural Lending",
+    "location": "USA",
+    "description": "Cooperative lending network providing financing for farms, rural land, and agricultural businesses.",
+    "funding_type": "Loans",
+    "focus_areas": ["farmland-financing", "agricultural-loans", "rural-development", "cooperative"],
+    "tags": ["loans", "agricultural-finance", "cooperative", "farmland"],
+    "contact": {
+      "website": "https://www.farmcredit.com/"
+    }
+  },
+  {
+    "name": "Tides Foundation",
+    "url": "https://www.tides.org/",
+    "category": "Philanthropic Platform",
+    "location": "California, USA",
+    "description": "Supporting environmental and social justice initiatives through donor-advised funds and grants.",
+    "funding_type": "Grants & Donor-Advised Funds",
+    "focus_areas": ["environment", "social-justice", "climate", "community-development"],
+    "tags": ["philanthropy", "grants", "donor-advised", "environment"],
+    "contact": {
+      "website": "https://www.tides.org/"
+    }
+  },
+  {
+    "name": "11th Hour Project",
+    "url": "https://11thhourproject.org/",
+    "category": "Environmental Philanthropy",
+    "location": "California, USA",
+    "description": "Supporting solutions to climate change and ecological restoration through strategic grants.",
+    "funding_type": "Grants",
+    "focus_areas": ["climate-solutions", "ecological-restoration", "renewable-energy", "food-systems"],
+    "tags": ["philanthropy", "grants", "climate", "ecological-restoration"],
+    "contact": {
+      "website": "https://11thhourproject.org/"
+    }
+  },
+  {
+    "name": "Ceres Trust",
+    "url": "https://cerestrust.org/",
+    "category": "Organic Agriculture Philanthropy",
+    "location": "Illinois, USA",
+    "description": "Supporting organic and sustainable agriculture through grants to organizations and projects.",
+    "funding_type": "Grants",
+    "focus_areas": ["organic-agriculture", "sustainable-farming", "food-systems", "policy"],
+    "tags": ["philanthropy", "grants", "organic-agriculture", "policy"],
+    "contact": {
+      "website": "https://cerestrust.org/"
+    }
+  },
+  {
+    "name": "Clif Bar Family Foundation",
+    "url": "https://clifbarfamilyfoundation.org/",
+    "category": "Environmental Grants",
+    "location": "California, USA",
+    "description": "Supporting grassroots environmental organizations, particularly in food and farming.",
+    "funding_type": "Grants",
+    "focus_areas": ["grassroots", "food-farming", "environmental-protection", "community"],
+    "tags": ["grants", "grassroots", "food-systems", "environmental"],
+    "contact": {
+      "website": "https://clifbarfamilyfoundation.org/"
+    }
+  },
+  {
+    "name": "Steward Lending",
+    "url": "https://www.stewardlending.org/",
+    "category": "Farmland Financing",
+    "location": "USA",
+    "description": "Providing farmland financing for ecological farmers practicing regenerative agriculture.",
+    "funding_type": "Loans & Financing",
+    "focus_areas": ["farmland-access", "regenerative-agriculture", "ecological-farming", "land-stewardship"],
+    "tags": ["loans", "farmland", "regenerative-agriculture", "stewardship"],
+    "contact": {
+      "website": "https://www.stewardlending.org/"
+    }
+  },
+  {
+    "name": "Grasslands LLC",
+    "url": "https://grasslandsllc.com/",
+    "category": "Regenerative Grazing Investment",
+    "location": "USA",
+    "description": "Investing in regenerative grazing operations and supporting ranchers transitioning to holistic management.",
+    "funding_type": "Investment",
+    "focus_areas": ["regenerative-grazing", "ranching", "holistic-management", "grasslands"],
+    "tags": ["investment", "grazing", "ranching", "regenerative"],
+    "contact": {
+      "website": "https://grasslandsllc.com/"
+    }
+  },
+  {
+    "name": "Radicle Impact",
+    "url": "https://www.radicleimpact.com/",
+    "category": "Impact Investment",
+    "location": "USA",
+    "description": "Early-stage impact investing in sustainable food, agriculture, and environmental solutions.",
+    "funding_type": "Impact Investment",
+    "focus_areas": ["food-systems", "sustainable-agriculture", "environmental-solutions", "early-stage"],
+    "tags": ["impact-investment", "food-systems", "early-stage", "sustainable"],
+    "contact": {
+      "website": "https://www.radicleimpact.com/"
+    }
+  }
+]

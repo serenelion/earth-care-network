@@ -1,0 +1,222 @@
+[
+  {
+    "name": "OYA New Earth",
+    "url": "https://oyanewearth.com/",
+    "category": "Retreat Center",
+    "location": "Puerto Plata, Dominican Republic",
+    "description": "88-acre private sanctuary offering tailor-made experiences for mind, body and spirit. Features 7-room boutique retreat, organic farm, livestock, yoga, meditation, and personalized wellness programs.",
+    "tags": ["retreat", "wellness", "organic-farm", "meditation", "yoga", "holistic-health"],
+    "contact": {
+      "website": "https://oyanewearth.com/"
+    }
+  },
+  {
+    "name": "Chozen Retreat",
+    "url": "https://www.chozenretreat.com/",
+    "category": "Retreat Center",
+    "location": "Costa Rica",
+    "description": "Wellness retreat center focused on regeneration, mindfulness, and connection with nature.",
+    "tags": ["retreat", "wellness", "mindfulness", "nature-immersion"],
+    "contact": {
+      "website": "https://www.chozenretreat.com/"
+    }
+  },
+  {
+    "name": "Wildflower Farms",
+    "url": "https://auberge.com/wildflower-farms",
+    "category": "Regenerative Farm & Resort",
+    "location": "New York, USA",
+    "description": "Auberge Resorts' regenerative farm and luxury resort combining sustainable agriculture with hospitality.",
+    "tags": ["regenerative-agriculture", "luxury-resort", "sustainable-hospitality", "farm-to-table"],
+    "contact": {
+      "website": "https://auberge.com/wildflower-farms"
+    }
+  },
+  {
+    "name": "Polyface Farm",
+    "url": "https://www.polyfacefarms.com/",
+    "category": "Regenerative Farm",
+    "location": "Virginia, USA",
+    "description": "Multi-generational family farm practicing regenerative agriculture. Known for innovative pastured livestock systems and educational programs.",
+    "tags": ["regenerative-agriculture", "pastured-livestock", "education", "farm-tours"],
+    "contact": {
+      "website": "https://www.polyfacefarms.com/"
+    }
+  },
+  {
+    "name": "Rancho Mastatal",
+    "url": "https://ranchomastatal.com/",
+    "category": "Educational Farm & Retreat",
+    "location": "Puriscal, Costa Rica",
+    "description": "Off-grid educational farm and retreat center focused on sustainable living, natural building, and permaculture education.",
+    "tags": ["permaculture", "natural-building", "education", "off-grid", "sustainable-living"],
+    "contact": {
+      "website": "https://ranchomastatal.com/"
+    }
+  },
+  {
+    "name": "Esalen Institute",
+    "url": "https://www.esalen.org/",
+    "category": "Retreat Center & Educational Institute",
+    "location": "Big Sur, California, USA",
+    "description": "Pioneering retreat center and educational institute focused on human potential, regenerative practices, and transformational experiences.",
+    "tags": ["retreat", "education", "transformational", "wellness", "hot-springs"],
+    "contact": {
+      "website": "https://www.esalen.org/"
+    }
+  },
+  {
+    "name": "The Farm",
+    "url": "https://www.thefarmcommunity.com/",
+    "category": "Intentional Community",
+    "location": "Tennessee, USA",
+    "description": "Historic intentional community founded in 1971, focused on sustainable living, organic farming, and ecological practices.",
+    "tags": ["intentional-community", "organic-farming", "sustainable-living", "ecovillage"],
+    "contact": {
+      "website": "https://www.thefarmcommunity.com/"
+    }
+  },
+  {
+    "name": "Earthaven Ecovillage",
+    "url": "https://www.earthaven.org/",
+    "category": "Intentional Community",
+    "location": "North Carolina, USA",
+    "description": "Permaculture-based intentional community demonstrating sustainable living practices and regenerative land stewardship.",
+    "tags": ["ecovillage", "permaculture", "intentional-community", "sustainable-living"],
+    "contact": {
+      "website": "https://www.earthaven.org/"
+    }
+  },
+  {
+    "name": "Feather & Oak Farm",
+    "url": "https://www.featherandoakfarm.com/",
+    "category": "Regenerative Farm",
+    "location": "California, USA",
+    "description": "Regenerative no-till flower and vegetable farm focused on soil health and biodiversity.",
+    "tags": ["regenerative-agriculture", "no-till", "flowers", "vegetables", "soil-health"],
+    "contact": {
+      "website": "https://www.featherandoakfarm.com/"
+    }
+  },
+  {
+    "name": "Quail Springs Permaculture",
+    "url": "https://www.quailsprings.org/",
+    "category": "Educational Farm & Retreat",
+    "location": "California, USA",
+    "description": "Off-grid permaculture demonstration site offering education in regenerative agriculture, water harvesting, and sustainable living.",
+    "tags": ["permaculture", "education", "water-harvesting", "off-grid", "regenerative-agriculture"],
+    "contact": {
+      "website": "https://www.quailsprings.org/"
+    }
+  },
+  {
+    "name": "Aprovecho Research Center",
+    "url": "https://aprovecho.org/",
+    "category": "Research & Educational Center",
+    "location": "Oregon, USA",
+    "description": "Research center focused on appropriate technology, sustainable forestry, and regenerative design education.",
+    "tags": ["research", "education", "appropriate-technology", "sustainable-forestry"],
+    "contact": {
+      "website": "https://aprovecho.org/"
+    }
+  },
+  {
+    "name": "Omega Institute",
+    "url": "https://www.eomega.org/",
+    "category": "Retreat Center & Educational Institute",
+    "location": "New York, USA",
+    "description": "Leading retreat center offering workshops in wellness, sustainability, and personal growth on a sustainable campus.",
+    "tags": ["retreat", "education", "wellness", "sustainability", "personal-growth"],
+    "contact": {
+      "website": "https://www.eomega.org/"
+    }
+  },
+  {
+    "name": "Findhorn Ecovillage",
+    "url": "https://www.findhorn.org/",
+    "category": "Intentional Community",
+    "location": "Scotland, UK",
+    "description": "Pioneering spiritual community and ecovillage demonstrating sustainable living and regenerative practices.",
+    "tags": ["ecovillage", "intentional-community", "spiritual", "sustainable-living"],
+    "contact": {
+      "website": "https://www.findhorn.org/"
+    }
+  },
+  {
+    "name": "Tamera Peace Research Village",
+    "url": "https://www.tamera.org/",
+    "category": "Intentional Community & Research Center",
+    "location": "Portugal",
+    "description": "Peace research village developing models for sustainable living, water restoration, and regenerative community.",
+    "tags": ["intentional-community", "peace-research", "water-restoration", "regenerative-design"],
+    "contact": {
+      "website": "https://www.tamera.org/"
+    }
+  },
+  {
+    "name": "Singing Frogs Farm",
+    "url": "https://www.singingfrogsfarm.com/",
+    "category": "Regenerative Farm",
+    "location": "California, USA",
+    "description": "No-till regenerative market farm demonstrating high-production organic farming while building soil health.",
+    "tags": ["regenerative-agriculture", "no-till", "organic", "market-garden", "soil-health"],
+    "contact": {
+      "website": "https://www.singingfrogsfarm.com/"
+    }
+  },
+  {
+    "name": "Pie Ranch",
+    "url": "https://www.pieranch.org/",
+    "category": "Educational Farm",
+    "location": "California, USA",
+    "description": "Organic farm and education center connecting youth to nature, food, and community through hands-on learning.",
+    "tags": ["education", "organic-farming", "youth-programs", "food-justice"],
+    "contact": {
+      "website": "https://www.pieranch.org/"
+    }
+  },
+  {
+    "name": "Hawthorne Valley Farm",
+    "url": "https://hawthornevalley.org/",
+    "category": "Biodynamic Farm & Educational Center",
+    "location": "New York, USA",
+    "description": "Biodynamic farm offering education, farm products, and demonstration of regenerative agricultural practices.",
+    "tags": ["biodynamic", "education", "regenerative-agriculture", "farm-to-school"],
+    "contact": {
+      "website": "https://hawthornevalley.org/"
+    }
+  },
+  {
+    "name": "Knepp Estate",
+    "url": "https://knepp.co.uk/",
+    "category": "Rewilding Project",
+    "location": "West Sussex, UK",
+    "description": "3,500-acre rewilding project demonstrating nature-based solutions and regenerative land management.",
+    "tags": ["rewilding", "conservation", "regenerative-land-management", "wildlife"],
+    "contact": {
+      "website": "https://knepp.co.uk/"
+    }
+  },
+  {
+    "name": "White Oak Pastures",
+    "url": "https://whiteoakpastures.com/",
+    "category": "Regenerative Farm",
+    "location": "Georgia, USA",
+    "description": "Zero-waste regenerative farm raising livestock on pasture, focused on soil health and carbon sequestration.",
+    "tags": ["regenerative-agriculture", "pastured-livestock", "zero-waste", "carbon-sequestration"],
+    "contact": {
+      "website": "https://whiteoakpastures.com/"
+    }
+  },
+  {
+    "name": "Paicines Ranch",
+    "url": "https://paicinesranch.com/",
+    "category": "Regenerative Ranch",
+    "location": "California, USA",
+    "description": "7,000-acre regenerative ranch pioneering holistic grazing practices and ecosystem restoration.",
+    "tags": ["regenerative-agriculture", "holistic-grazing", "ecosystem-restoration", "wildlife-habitat"],
+    "contact": {
+      "website": "https://paicinesranch.com/"
+    }
+  }
+]

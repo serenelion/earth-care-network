@@ -1,0 +1,374 @@
+[
+  {
+    "name": "The Commonstead",
+    "url": "https://thecommonstead.com/",
+    "category": "Regenerative Design & Consulting",
+    "location": "Vermont, USA",
+    "description": "Comprehensive regenerative design services including permaculture design, natural building, and homestead consulting.",
+    "services": ["permaculture-design", "natural-building", "homestead-consulting", "site-assessment"],
+    "tags": ["permaculture", "natural-building", "consulting", "design"],
+    "contact": {
+      "website": "https://thecommonstead.com/"
+    }
+  },
+  {
+    "name": "Food Forest Abundance",
+    "url": "https://foodforestabundance.com/",
+    "category": "Food Forest Design & Implementation",
+    "location": "California, USA",
+    "description": "Specializing in food forest design, installation, and education for regenerative landscapes.",
+    "services": ["food-forest-design", "installation", "education", "consulting"],
+    "tags": ["food-forest", "permaculture", "design", "installation"],
+    "contact": {
+      "website": "https://foodforestabundance.com/"
+    }
+  },
+  {
+    "name": "Terralux",
+    "url": "https://terraluxhome.com/",
+    "category": "Regenerative Building & Design",
+    "location": "Multiple Locations",
+    "description": "Regenerative building and design services creating beautiful, sustainable homes and spaces.",
+    "services": ["regenerative-building", "sustainable-design", "natural-materials", "project-management"],
+    "tags": ["regenerative-building", "sustainable-design", "architecture", "natural-building"],
+    "contact": {
+      "website": "https://terraluxhome.com/"
+    }
+  },
+  {
+    "name": "Regenesis Group",
+    "url": "https://regenesisgroup.com/",
+    "category": "Regenerative Development Consulting",
+    "location": "New Mexico, USA",
+    "description": "Leading consultancy in regenerative development, place-based design, and living systems thinking.",
+    "services": ["regenerative-development", "place-based-design", "systems-thinking", "strategic-planning"],
+    "tags": ["regenerative-development", "consulting", "systems-thinking", "strategy"],
+    "contact": {
+      "website": "https://regenesisgroup.com/"
+    }
+  },
+  {
+    "name": "Perennial Consulting",
+    "url": "https://www.perennialconsulting.net/",
+    "category": "Regenerative Agriculture Consulting",
+    "location": "California, USA",
+    "description": "Consulting services for transitioning to regenerative agriculture and building resilient farm systems.",
+    "services": ["farm-planning", "soil-health", "regenerative-transitions", "carbon-farming"],
+    "tags": ["regenerative-agriculture", "consulting", "soil-health", "carbon-farming"],
+    "contact": {
+      "website": "https://www.perennialconsulting.net/"
+    }
+  },
+  {
+    "name": "Regenerative Design Group",
+    "url": "https://www.regenerativedesign.org/",
+    "category": "Permaculture Design & Education",
+    "location": "California, USA",
+    "description": "Permaculture design, consulting, and education for regenerative land management.",
+    "services": ["permaculture-design", "education", "consulting", "watershed-restoration"],
+    "tags": ["permaculture", "design", "education", "watershed-restoration"],
+    "contact": {
+      "website": "https://www.regenerativedesign.org/"
+    }
+  },
+  {
+    "name": "Biohabitats",
+    "url": "https://www.biohabitats.com/",
+    "category": "Ecological Restoration & Design",
+    "location": "Multiple US Locations",
+    "description": "Conservation planning, ecological restoration, and regenerative stormwater management.",
+    "services": ["ecological-restoration", "conservation-planning", "green-infrastructure", "watershed-management"],
+    "tags": ["ecological-restoration", "conservation", "green-infrastructure", "planning"],
+    "contact": {
+      "website": "https://www.biohabitats.com/"
+    }
+  },
+  {
+    "name": "Eco-Sense Design",
+    "url": "https://www.ecosensedesign.com/",
+    "category": "Permaculture Design & Consulting",
+    "location": "California, USA",
+    "description": "Ecological design services specializing in permaculture, water harvesting, and regenerative landscapes.",
+    "services": ["permaculture-design", "water-harvesting", "landscape-design", "site-assessment"],
+    "tags": ["permaculture", "water-harvesting", "landscape-design", "consulting"],
+    "contact": {
+      "website": "https://www.ecosensedesign.com/"
+    }
+  },
+  {
+    "name": "Resilient Agriculture Consulting",
+    "url": "https://www.resilientagriculture.com/",
+    "category": "Regenerative Agriculture Consulting",
+    "location": "Multiple Locations",
+    "description": "Supporting farmers in transition to regenerative practices with focus on soil health and profitability.",
+    "services": ["farm-transitions", "soil-health", "grazing-planning", "business-planning"],
+    "tags": ["regenerative-agriculture", "consulting", "soil-health", "grazing"],
+    "contact": {
+      "website": "https://www.resilientagriculture.com/"
+    }
+  },
+  {
+    "name": "Living Systems Institute",
+    "url": "https://www.livingsystemsinstitute.org/",
+    "category": "Systems Thinking & Regenerative Design Education",
+    "location": "Online & Global",
+    "description": "Education and training in living systems thinking and regenerative design principles.",
+    "services": ["education", "training", "systems-thinking", "design-consultation"],
+    "tags": ["education", "systems-thinking", "regenerative-design", "training"],
+    "contact": {
+      "website": "https://www.livingsystemsinstitute.org/"
+    }
+  },
+  {
+    "name": "Holistic Management International",
+    "url": "https://holisticmanagement.org/",
+    "category": "Holistic Management Training & Consulting",
+    "location": "New Mexico, USA",
+    "description": "Training and consulting in holistic management for regenerative land and livestock management.",
+    "services": ["holistic-management", "training", "grazing-planning", "consulting"],
+    "tags": ["holistic-management", "grazing", "training", "consulting"],
+    "contact": {
+      "website": "https://holisticmanagement.org/"
+    }
+  },
+  {
+    "name": "Biomimicry Institute",
+    "url": "https://biomimicry.org/",
+    "category": "Biomimicry Consulting & Education",
+    "location": "Montana, USA",
+    "description": "Biomimicry-based design consulting and education for regenerative innovation.",
+    "services": ["biomimicry-design", "consulting", "education", "innovation"],
+    "tags": ["biomimicry", "innovation", "education", "design"],
+    "contact": {
+      "website": "https://biomimicry.org/"
+    }
+  },
+  {
+    "name": "Terra Genesis International",
+    "url": "https://www.terra-genesis.com/",
+    "category": "Regenerative Business Consulting",
+    "location": "Global",
+    "description": "Helping businesses integrate regenerative principles into operations and strategy.",
+    "services": ["business-consulting", "regenerative-strategy", "organizational-development", "training"],
+    "tags": ["business-consulting", "regenerative-business", "strategy", "training"],
+    "contact": {
+      "website": "https://www.terra-genesis.com/"
+    }
+  },
+  {
+    "name": "Nrg Ecosystems",
+    "url": "https://www.nrgecosystems.com/",
+    "category": "Ecological Design & Restoration",
+    "location": "California, USA",
+    "description": "Ecological site design, restoration, and permaculture consulting for regenerative landscapes.",
+    "services": ["ecological-design", "restoration", "permaculture-design", "watershed-management"],
+    "tags": ["ecological-design", "restoration", "permaculture", "watersheds"],
+    "contact": {
+      "website": "https://www.nrgecosystems.com/"
+    }
+  },
+  {
+    "name": "Whole Systems Design",
+    "url": "https://www.wholesystemsdesign.com/",
+    "category": "Regenerative Design & Engineering",
+    "location": "Vermont, USA",
+    "description": "Integrated design and engineering for regenerative food systems, water management, and resilient landscapes.",
+    "services": ["systems-design", "water-management", "food-systems", "engineering"],
+    "tags": ["systems-design", "engineering", "water-management", "food-systems"],
+    "contact": {
+      "website": "https://www.wholesystemsdesign.com/"
+    }
+  },
+  {
+    "name": "Savory Institute",
+    "url": "https://savory.global/",
+    "category": "Holistic Land Management",
+    "location": "Colorado, USA",
+    "description": "Global network promoting holistic management and regenerative agriculture through training and consulting.",
+    "services": ["training", "consulting", "holistic-management", "land-to-market"],
+    "tags": ["holistic-management", "training", "regenerative-agriculture", "network"],
+    "contact": {
+      "website": "https://savory.global/"
+    }
+  },
+  {
+    "name": "Permaculture Design Magazine",
+    "url": "https://www.permaculturedesignmagazine.com/",
+    "category": "Education & Media",
+    "location": "North Carolina, USA",
+    "description": "Educational resources, design services, and consulting for permaculture practitioners.",
+    "services": ["education", "design-consulting", "media", "training"],
+    "tags": ["permaculture", "education", "media", "design"],
+    "contact": {
+      "website": "https://www.permaculturedesignmagazine.com/"
+    }
+  },
+  {
+    "name": "Ecological Design Collaborative",
+    "url": "https://www.edcollab.com/",
+    "category": "Ecological Architecture & Design",
+    "location": "Massachusetts, USA",
+    "description": "Architectural and design services focused on ecological principles and regenerative building.",
+    "services": ["architecture", "ecological-design", "sustainable-building", "consulting"],
+    "tags": ["architecture", "ecological-design", "sustainable-building", "design"],
+    "contact": {
+      "website": "https://www.edcollab.com/"
+    }
+  },
+  {
+    "name": "Gaia Permaculture",
+    "url": "https://www.gaiapermaculture.org/",
+    "category": "Permaculture Design & Education",
+    "location": "California, USA",
+    "description": "Permaculture design, education, and consulting for regenerative homesteads and farms.",
+    "services": ["permaculture-design", "education", "consulting", "site-development"],
+    "tags": ["permaculture", "education", "design", "consulting"],
+    "contact": {
+      "website": "https://www.gaiapermaculture.org/"
+    }
+  },
+  {
+    "name": "Aloha House Ecological Design",
+    "url": "https://www.alohahouse.com/",
+    "category": "Natural Building & Design",
+    "location": "Oregon, USA",
+    "description": "Natural building design, consulting, and education for sustainable structures.",
+    "services": ["natural-building", "design", "education", "consulting"],
+    "tags": ["natural-building", "design", "education", "sustainable-architecture"],
+    "contact": {
+      "website": "https://www.alohahouse.com/"
+    }
+  },
+  {
+    "name": "Applied Ecological Services",
+    "url": "https://www.appliedeco.com/",
+    "category": "Ecological Restoration",
+    "location": "Wisconsin, USA",
+    "description": "Large-scale ecological restoration, native seed production, and wetland mitigation services.",
+    "services": ["ecological-restoration", "native-plants", "wetland-restoration", "mitigation"],
+    "tags": ["ecological-restoration", "native-plants", "wetlands", "conservation"],
+    "contact": {
+      "website": "https://www.appliedeco.com/"
+    }
+  },
+  {
+    "name": "Regen Network",
+    "url": "https://www.regen.network/",
+    "category": "Blockchain for Regenerative Agriculture",
+    "location": "Global",
+    "description": "Technology platform for verifying and financing regenerative agriculture and ecosystem services.",
+    "services": ["carbon-credits", "verification", "blockchain", "marketplace"],
+    "tags": ["technology", "carbon-credits", "blockchain", "regenerative-agriculture"],
+    "contact": {
+      "website": "https://www.regen.network/"
+    }
+  },
+  {
+    "name": "Carbon Cycle Institute",
+    "url": "https://www.carboncycle.org/",
+    "category": "Carbon Farming & Climate Solutions",
+    "location": "California, USA",
+    "description": "Advancing carbon farming and healthy soils solutions through research, education, and consulting.",
+    "services": ["carbon-farming", "research", "education", "policy"],
+    "tags": ["carbon-farming", "soil-health", "climate-solutions", "research"],
+    "contact": {
+      "website": "https://www.carboncycle.org/"
+    }
+  },
+  {
+    "name": "Biodiversity for a Livable Climate",
+    "url": "https://bio4climate.org/",
+    "category": "Climate Solutions & Education",
+    "location": "Massachusetts, USA",
+    "description": "Education and advocacy for ecosystem restoration as a climate solution.",
+    "services": ["education", "advocacy", "ecosystem-restoration", "policy"],
+    "tags": ["climate-solutions", "ecosystem-restoration", "education", "advocacy"],
+    "contact": {
+      "website": "https://bio4climate.org/"
+    }
+  },
+  {
+    "name": "Kiss The Ground",
+    "url": "https://kisstheground.com/",
+    "category": "Soil Health Education & Advocacy",
+    "location": "California, USA",
+    "description": "Educational nonprofit promoting regenerative agriculture and soil health through media and advocacy.",
+    "services": ["education", "advocacy", "media", "community-building"],
+    "tags": ["soil-health", "education", "advocacy", "media"],
+    "contact": {
+      "website": "https://kisstheground.com/"
+    }
+  },
+  {
+    "name": "Fibershed",
+    "url": "https://fibershed.org/",
+    "category": "Regenerative Textiles & Systems",
+    "location": "California, USA",
+    "description": "Developing regional fiber systems and regenerative textile supply chains.",
+    "services": ["textiles", "consulting", "education", "supply-chain"],
+    "tags": ["textiles", "regenerative-agriculture", "supply-chain", "fiber"],
+    "contact": {
+      "website": "https://fibershed.org/"
+    }
+  },
+  {
+    "name": "Rodale Institute",
+    "url": "https://rodaleinstitute.org/",
+    "category": "Organic Agriculture Research & Education",
+    "location": "Pennsylvania, USA",
+    "description": "Research institute advancing regenerative organic agriculture through science and education.",
+    "services": ["research", "education", "farmer-training", "consulting"],
+    "tags": ["research", "organic-agriculture", "education", "regenerative-agriculture"],
+    "contact": {
+      "website": "https://rodaleinstitute.org/"
+    }
+  },
+  {
+    "name": "Quivira Coalition",
+    "url": "https://quiviracoalition.org/",
+    "category": "Regenerative Ranching & Land Management",
+    "location": "New Mexico, USA",
+    "description": "Building resilient grasslands through regenerative ranching and land management practices.",
+    "services": ["education", "ranching-consulting", "land-management", "watershed-restoration"],
+    "tags": ["regenerative-ranching", "grasslands", "watershed", "education"],
+    "contact": {
+      "website": "https://quiviracoalition.org/"
+    }
+  },
+  {
+    "name": "Stone Barns Center",
+    "url": "https://www.stonebarnscenter.org/",
+    "category": "Sustainable Agriculture Education",
+    "location": "New York, USA",
+    "description": "Working farm and education center creating a healthy and sustainable food system.",
+    "services": ["education", "farm-operations", "research", "consulting"],
+    "tags": ["sustainable-agriculture", "education", "farm", "food-systems"],
+    "contact": {
+      "website": "https://www.stonebarnscenter.org/"
+    }
+  },
+  {
+    "name": "The Carbon Underground",
+    "url": "https://thecarbonunderground.org/",
+    "category": "Soil Carbon & Climate Solutions",
+    "location": "California, USA",
+    "description": "Accelerating soil restoration as a climate solution through education and advocacy.",
+    "services": ["education", "advocacy", "events", "networking"],
+    "tags": ["soil-carbon", "climate-solutions", "education", "advocacy"],
+    "contact": {
+      "website": "https://thecarbonunderground.org/"
+    }
+  },
+  {
+    "name": "Regenerative Agriculture Foundation",
+    "url": "https://regenerativeagriculturefoundation.org/",
+    "category": "Regenerative Agriculture Standards & Certification",
+    "location": "California, USA",
+    "description": "Developing standards and certification for regenerative agriculture practices.",
+    "services": ["certification", "standards", "education", "verification"],
+    "tags": ["certification", "standards", "regenerative-agriculture", "verification"],
+    "contact": {
+      "website": "https://regenerativeagriculturefoundation.org/"
+    }
+  }
+]
